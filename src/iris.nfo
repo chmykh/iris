@@ -7,7 +7,7 @@
 
     0 * 4	38 00 00 00
 
-    1 * -1	08 08 "ALS" 01 "Iris Gameplay Tweaks" 00 "Number of gameplay tweaks for the ..:: Surreal Hardcore ::.. server. Less aircrafts, no silly futuristic ones. Some modern trains. Weak monorails." 00
+    1 * 174	08 08 "ALS" 01 "Iris Gameplay Tweaks" 00 "Number of gameplay tweaks for the ..:: Surreal Hardcore ::.. server. Less aircrafts, no silly futuristic ones. Some modern trains. Weak monorails." 00
 
     2 * 7	00 03 01 01 27  04 FF // guru x2 helicopter never expire
 
@@ -156,7 +156,8 @@
     55 * 9	00 00 01 01 FF 01 01  1A 36 // new asiastar before first monorial
 
     // static info
-    56 * -1     14
+    56 * 19     14
                 "C" "INFO"
                         "B" "VRSN"      04 00  01 00 00 00   // version 1
+			00
                 00
