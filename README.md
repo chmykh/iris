@@ -22,4 +22,6 @@ Trains
 2. 2 modern high-speed electric trains (newer TGV and newer Eurostar).
 3. Monorail engines weakened significantly.
 
+https://github.com/chmykh/iris
+
 Alexander Serkov, chmykh@gmail.com, 2021
