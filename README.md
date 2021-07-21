@@ -3,7 +3,7 @@ Iris Gameplay Tweaks
 
 Tweaks for the "..:: Surreal Hardcore ::.. // oldschool tycoon" multiplayer server.
 
-Version 1.
+Version 2.
 
 Aircrafts
 ---------
