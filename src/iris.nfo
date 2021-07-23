@@ -24,7 +24,7 @@
     13 * 7	00 03 01 01 0B  06 00 // darwin 100 - DISABLE
 
     14 * 19	00 03 06 01 0C        // darwin 200. make earlier and cheaper, so could compete with modified bakewell lucket lb8
-				00 12 39 // introduction 1960
+				00 \w01-01-1960
 				0F C8 00 // capacity pax 200
 				11 1E // capacity mail 30
 				0B 0F // cost is 15
@@ -42,12 +42,12 @@
     23 * 7	00 03 01 01 15  06 07 // airtaxi a33. is a large airplane for 1994-2024
     24 * 7	00 03 01 01 16  06 07 // yate aerospace yae46. is a small airplane for 1980-2010
     25 * 10	00 03 01 01 17        // dinger 100, moved towards future. small airplane for 2012-2060s
-				00 40 83 // introduction 2012
+				00 \w01-01-2012
 				04 32 // model life 50 yr
 
     26 * 23	00 03 08 01 18        // airtaxi a34-1000 - change to very small regional
 				08 02 // sprite #1
-				00 E2 59 // introduction 1983
+				00 \w01-01-1983
 				0F 19 00 // capacity pax 25
 				11 04 // capacity mail 4
 				0C 25 // speed 37 units (turboprop)
@@ -57,7 +57,7 @@
 
     27 * 23	00 03 08 01 19        // yate z-shuttle - change to small regional
 				08 0A // sprite #5
-				00 2C 83 // introduction 2012				
+				00 \w01-01-2012				
 				0F 1E 00 // capacity pax 30
 				11 06 // capacity mail 6
 				0C 25 // speed 40 units (as guru x2 heli)
@@ -67,7 +67,7 @@
 
     28 * 18	00 03 06 01 1A        // kelling k1 - change to small regional
 				08 00 // sprite #0
-				00 D6 9C // introduction 2030
+				00 \w01-01-2030
 				0C 28 // speed 40 units (as guru x2 heli)
 				0B 0C // cost in 12
 				0E 3C // rcost is 60
@@ -82,11 +82,11 @@
 				09 00 // ...but VTOL
     33 * 12	00 03 03 01 1F        // dinger 200 -> a380
 				08 0E // sprite #7 (b747)
-				00 38 7C // introduction 2007 yr (31800 days)
+				00 \w01-01-2007
 				04 FF // model life unlimited
     34 * 12	00 03 03 01 20        // dinger 1000, futuristic supersonic
 				08 10 // sprite #5 (concorde)
-				00 DB 92 // introduction 2023
+				00 \w01-01-2023
 				04 FF // model life unlimited
 
     35 * 7	00 03 01 01 26  06 07 // tricario heli
@@ -122,8 +122,9 @@
     49 * 7	00 00 01 01 0F  06 01 // 47
     50 * 7	00 00 01 01 16  06 01 // sh 125
 
-    51 * 45	00 00 10 01 FF 03 01   // flirt diesel
-					00 D9 77 // 2004=30681=0x77D9
+    51 * 47	00 00 11 01 FF 03 01   // flirt diesel
+					00 \w01-01-2004
+					02 14 // decay speed 20
 					03 14 // life 20yr
 					04 FF // model life unlimited yr
 					06 01 // climate temp
@@ -145,8 +146,9 @@
     54 * 7	00 00 01 01 18  04 FF // sh 40, set lifetime unlimited
     55 * 7	00 00 01 01 19  06 01 // t.i.m.
 
-    56 * 41	00 00 0E 01 FF 02 01  // newer tgv, 2005yr, 300kph, 9200hp
-					00 46 79 // 2005=31046=0x7946
+    56 * 43	00 00 0F 01 FF 02 01  // newer tgv, 2005yr, 300kph, 9200hp
+					00 \w01-01-2005
+					02 14 // decay speed 20
 					03 19 // life 25yr
 					04 1E // model life 30yr
 					06 01 // climate temp
@@ -164,8 +166,9 @@
 
     58 * 7	00 00 01 01 1A  04 1E  // model lifetime of old asiastar be 30, not 50
 
-    59 * 41	00 00 0E 01 FF 01 01  // newer eurostar (class 374), 2011yr, 320kph, 10000hp
-					00 D6 81 // 2011=33238=0x81D6
+    59 * 43	00 00 0F 01 FF 01 01  // newer eurostar (class 374), 2011yr, 320kph, 10000hp
+					00 \w01-01-2011
+					02 14 // decay speed 20
 					03 19 // life 25 yr
 					04 FF // model life unlimited yr
 					06 01 // climate temp
@@ -189,8 +192,9 @@
 // Budd RDC : 1949, 137kph, 550hp/unit ? 
 // Budd Metroliner : 1967, 160kph, 1000hp ?
 
-//    61 * 41	0C 00 0E 01 FF 04 01  // GE E60 - DISABLED
-//					00 31 4A // 1972=18993=4A31
+//    61 * 43	0C 00 0F 01 FF 04 01  // GE E60 - DISABLED
+//					00 \w01-01-1972
+//					02 14 // decay speed 20
 //					03 14 // life 20 yr
 //					04 14 // model life 20 yr
 //					06 00 // climate america
@@ -216,8 +220,9 @@
     71 * 7	00 00 01 01 15  06 06 // mjs1000
   
 
-    72 * 41	00 00 0E 01 FF 04 01  // GE AC6000CW
-					00 01 6B // 1995=27393=6B01
+    72 * 43	00 00 0F 01 FF 04 01  // GE AC6000CW
+					00 \w01-01-1995
+					02 14 // decay speed 20
 					03 19 // life 25 yr
 					04 FF // model life unlimited yr
 					06 06 // climate america
@@ -233,8 +238,9 @@
 					19 08 // traction type diesel
     73 * 25	04 00 00 01 FF 04 01 "AC6000CW (Diesel)" 00
 
-    74 * 41	00 00 0E 01 FF 05 01  // EMD AEM-7
-					00 C0 52 // 1978=21184=52C0
+    74 * 43	00 00 0F 01 FF 05 01  // EMD AEM-7
+					00 \w01-01-1978
+					02 14 // decay speed 20
 					03 19 // life 25 yr
 					04 1E // model life 30 yr
 					06 06 // climate america
@@ -250,8 +256,9 @@
 					19 28 // traction type electric
     75 * 24	04 00 00 01 FF 05 01 "AEM-7 (Electric)" 00
 
-    76 * 41	00 00 0E 01 FF 06 01  // Bombardier ALP-46
-					00 91 73 // 2001=29585=7391
+    76 * 43	00 00 0F 01 FF 06 01  // Bombardier ALP-46
+					00 \w01-01-2001
+					02 14 // decay speed 20
 					03 19 // life 25 yr
 					04 1E // model life 30 yr
 					06 06 // climate america
@@ -267,8 +274,9 @@
 					19 28 // traction type electric
     77 * 25	04 00 00 01 FF 06 01 "ALP-46 (Electric)" 00
 
-    78 * 41	00 00 0E 01 FF 07 01  // Siemens ACS-64
-					00 43 83 // 2012=33603=8343
+    78 * 43	00 00 0F 01 FF 07 01  // Siemens ACS-64
+					00 \w01-01-2012
+					02 14 // decay speed 20
 					03 19 // life 25 yr
 					04 1E // model life 30 yr
 					06 06 // climate america
@@ -284,8 +292,9 @@
 					19 28 // traction type electric
     79 * 25	04 00 00 01 FF 07 01 "ACS-64 (Electric)" 00
 
-    80 * 41	00 00 0E 01 FF 08 01  // Acela
-					00 24 72 // 2000=29220=7224
+    80 * 43	00 00 0F 01 FF 08 01  // Acela
+					00 \w01-01-2000
+					02 14 // decay speed 20
 					03 19 // life 25 yr
 					04 1E // model life 30 yr
 					06 06 // climate america
@@ -301,8 +310,9 @@
 					19 28 // traction type electric
     81 * 26	04 00 00 01 FF 08 01 "'Acela' (Electric)" 00
 
-    82 * 41	00 00 0E 01 FF 09 01  // Avelia
-					00 87 91 // 2022=37255=9187
+    82 * 43	00 00 0F 01 FF 09 01  // Avelia
+					00 \w01-01-2022
+					02 14 // decay speed 20
 					03 19 // life 25 yr
 					04 FF // model life unlimited yr
 					06 06 // climate america
@@ -338,8 +348,8 @@
     // static info
     96 * 66	14
 		"C" "INFO"
-			"B" "VRSN"  04 00  03 00 00 00   // version 3
-			"B" "MINV"  04 00  03 00 00 00   // min compatible version 3
+			"B" "VRSN"  04 00  04 00 00 00   // version 4
+			"B" "MINV"  04 00  04 00 00 00   // min compatible version 4
 			"T" "URL_" 00 "http://github.com/chmykh/iris" 00
 			00
 		00
