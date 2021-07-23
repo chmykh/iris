@@ -1,2 +1,3 @@
 Ver 1. Initial release (planes, 3 rail engines, weak monorails)
 Ver 2. Bug with 'Flirt' loading fixed; number of planes reduced even more.
+Ver 3. American trains for arctic/tropic added.

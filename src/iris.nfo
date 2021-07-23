@@ -5,9 +5,9 @@
 // Escapes: D= = DR D+ = DF D- = DC Du* = DM D* = DnF Du<< = DnC D<< = DO D& D| Du/ D/ Du% D%
 // Format: spritenum imagefile depth xpos ypos xsize ysize xrel yrel zoom flags
 
-    0 * 4	42 00 00 00
+    0 * 4	60 00 00 00
 
-    1 * 174	08 08 "ALS" 01 "Iris Gameplay Tweaks" 00 "Number of gameplay tweaks for the ..:: Surreal Hardcore ::.. server. Less aircrafts, no silly futuristic ones. Some modern trains. Weak monorails." 00
+    1 * 184	08 08 "ALS" 01 "Iris Gameplay Tweaks" 00 "Number of gameplay tweaks for the ..:: Surreal Hardcore ::.. server. Fewer aircrafts, no silly futuristic ones. Some realitic modern trains. Weak monorails." 00
 
 // aircrafts
     2 * 7	00 03 01 01 00  06 07 // sampson
@@ -172,7 +172,7 @@
 					05 00 // rail
 					09 40 01 // speed 320kph
 					0B 10 27 // power 10000
-					0D FF // runing cost 255 (asiastar is 250)
+					0D FF // running cost 255 (asiastar is 250)
 					0E 3C 4C 00 00 // running cost base
 					12 2E // image #23
 					13 01 // dual-headed
@@ -181,19 +181,166 @@
 					19 28 // traction type electric
     60 * 34	04 00 00 01 FF 01 01 "'AsiaStar' e320 (Electric)" 00
 
-    // weaken monorail
-    61 * 8	00 00 01 01 36  0B 94 11 // power = 4500 = 0x1194
-    62 * 8	00 00 01 01 37  0B B8 0B // power = 3000 = 0x0BB8
-
     // sort vehicle list
-    63 * 9	00 00 01 01 FF 03 01  1A 17 // flirt before first electric
-    64 * 9	00 00 01 01 FF 02 01  1A 1A // new tgv before old asiastar
-    65 * 9	00 00 01 01 FF 01 01  1A 36 // new asiastar before first monorial
+    61 * 9	00 00 01 01 FF 03 01  1A 0D // flirt before first diesel
+    62 * 9	00 00 01 01 FF 02 01  1A 1A // new tgv before old asiastar
+    63 * 9	00 00 01 01 FF 01 01  1A 36 // new asiastar before first monorial
+
+// Budd RDC : 1949, 137kph, 550hp/unit ? 
+// Budd Metroliner : 1967, 160kph, 1000hp ?
+
+//    61 * 41	0C 00 0E 01 FF 04 01  // GE E60 - DISABLED
+//					00 31 4A // 1972=18993=4A31
+//					03 14 // life 20 yr
+//					04 14 // model life 20 yr
+//					06 00 // climate america
+//					05 00 // rail
+//					09 8C 00 // speed 140kph (144?)
+//					0B 70 17 // power 6000 (6083?)
+//					0D FF // runing cost 255 (asiastar is 250) ??????
+//					0E 3C 4C 00 00 // running cost base ??????
+//					12 28 // image #20 ??????
+//					13 00 // not dual-headed
+//					16 5C // weight 92t
+//					17 2C // cost factor 44 (asiastar is 43) ??????
+//					19 28 // traction type electric
+//    62 * 22	0C 00 00 01 FF 04 01 "E60 (Electric)" 00
+
+    64 * 7	00 00 01 01 01  06 06 // mjs250
+    65 * 7	00 00 01 01 07  06 06 // wills
+    66 * 7	00 00 01 01 10  06 06 // cs4000
+    67 * 7	00 00 01 01 11  06 06 // cs2400
+    68 * 7	00 00 01 01 12  06 06 // centennial
+    69 * 7	00 00 01 01 13  06 06 // kelling
+    70 * 7	00 00 01 01 14  06 06 // turner turbo
+    71 * 7	00 00 01 01 15  06 06 // mjs1000
+  
+
+    72 * 41	00 00 0E 01 FF 04 01  // GE AC6000CW
+					00 01 6B // 1995=27393=6B01
+					03 19 // life 25 yr
+					04 FF // model life unlimited yr
+					06 06 // climate america
+					05 00 // rail
+					09 78 00 // speed 120kph
+					0B 70 17 // power 6000
+					0D E1 // runing cost 225 (centennial 155, turbotrain 205)
+					0E 36 4C 00 00 // running cost base for diesel
+					12 1A // image #13 - centennial
+					13 00 // not dual-headed
+					16 C0 // weight 192t
+					17 28 // cost factor 40 (centennial 30, turbotrain 35)
+					19 08 // traction type diesel
+    73 * 25	04 00 00 01 FF 04 01 "AC6000CW (Diesel)" 00
+
+    74 * 41	00 00 0E 01 FF 05 01  // EMD AEM-7
+					00 C0 52 // 1978=21184=52C0
+					03 19 // life 25 yr
+					04 1E // model life 30 yr
+					06 06 // climate america
+					05 00 // rail
+					09 C8 00 // speed 200kph
+					0B 58 1B // power 7000
+					0D D2 // runing cost 210
+					0E 3C 4C 00 00 // running cost base
+					12 28 // image #20
+					13 00 // not dual-headed
+					16 5C // weight 92t
+					17 24 // cost factor 36
+					19 28 // traction type electric
+    75 * 24	04 00 00 01 FF 05 01 "AEM-7 (Electric)" 00
+
+    76 * 41	00 00 0E 01 FF 06 01  // Bombardier ALP-46
+					00 91 73 // 2001=29585=7391
+					03 19 // life 25 yr
+					04 1E // model life 30 yr
+					06 06 // climate america
+					05 00 // rail
+					09 A1 00 // speed 161kph
+					0B BC 1B // power 7100
+					0D DC // runing cost 220
+					0E 3C 4C 00 00 // running cost base
+					12 28 // image #20
+					13 00 // not dual-headed
+					16 5A // weight 90t
+					17 26 // cost factor 38
+					19 28 // traction type electric
+    77 * 25	04 00 00 01 FF 06 01 "ALP-46 (Electric)" 00
+
+    78 * 41	00 00 0E 01 FF 07 01  // Siemens ACS-64
+					00 43 83 // 2012=33603=8343
+					03 19 // life 25 yr
+					04 1E // model life 30 yr
+					06 06 // climate america
+					05 00 // rail
+					09 C8 00 // speed 200kph
+					0B 98 21 // power 8600
+					0D E6 // runing cost 230
+					0E 3C 4C 00 00 // running cost base
+					12 28 // image #20
+					13 00 // not dual-headed
+					16 5A // weight 90t
+					17 28 // cost factor 40
+					19 28 // traction type electric
+    79 * 25	04 00 00 01 FF 07 01 "ACS-64 (Electric)" 00
+
+    80 * 41	00 00 0E 01 FF 08 01  // Acela
+					00 24 72 // 2000=29220=7224
+					03 19 // life 25 yr
+					04 1E // model life 30 yr
+					06 06 // climate america
+					05 00 // rail
+					09 F0 00 // speed 240kph
+					0B 38 18 // power 6200
+					0D F0 // runing cost 240
+					0E 3C 4C 00 00 // running cost base
+					12 2A // image #21
+					13 01 // dual-headed
+					16 5D // weight 93t
+					17 2A // cost factor 42
+					19 28 // traction type electric
+    81 * 26	04 00 00 01 FF 08 01 "'Acela' (Electric)" 00
+
+    82 * 41	00 00 0E 01 FF 09 01  // Avelia
+					00 87 91 // 2022=37255=9187
+					03 19 // life 25 yr
+					04 FF // model life unlimited yr
+					06 06 // climate america
+					05 00 // rail
+					09 04 01 // speed 260kph
+					0B B8 24 // power 9400
+					0D FF // runing cost 255
+					0E 3C 4C 00 00 // running cost base
+					12 2E // image #23
+					13 01 // dual-headed
+					16 5D // weight 93t
+					17 2C // cost factor 44
+					19 28 // traction type electric
+    83 * 27	04 00 00 01 FF 09 01 "'Avelia' (Electric)" 00
+    
+    // sort list
+    84 * 9	00 00 01 01 FF 09 01  1A 36 // avelia before first monorail
+    85 * 11	00 00 01 01 FF 08 01  1A FF 09 01
+    86 * 11	00 00 01 01 FF 07 01  1A FF 08 01
+    87 * 11	00 00 01 01 FF 06 01  1A FF 07 01
+    88 * 11	00 00 01 01 FF 05 01  1A FF 06 01
+    89 * 11	00 00 01 01 FF 04 01  1A FF 05 01
+
+    // weaken monorail
+    90 * 8	00 00 01 01 36  0B 94 11 // power = 4500 = 0x1194
+    91 * 8	00 00 01 01 37  0B B8 0B // power = 3000 = 0x0BB8
+
+    92 * 8	0C 00 01 01 54  0B B8 0B
+    93 * 8	0C 00 01 01 55  0B B8 0B
+    94 * 8	0C 00 01 01 56  0B B8 0B
+    95 * 8	0C 00 01 01 57  0B B8 0B
 
     // static info
-    66 * 19	14
+    96 * 66	14
 		"C" "INFO"
-			"B" "VRSN"  04 00  02 00 00 00   // version 2
+			"B" "VRSN"  04 00  03 00 00 00   // version 3
+			"B" "MINV"  04 00  03 00 00 00   // min compatible version 3
+			"T" "URL_" 00 "http://github.com/chmykh/iris" 00
 			00
 		00
 
