@@ -5,9 +5,9 @@
 // Escapes: D= = DR D+ = DF D- = DC Du* = DM D* = DnF Du<< = DnC D<< = DO D& D| Du/ D/ Du% D%
 // Format: spritenum imagefile depth xpos ypos xsize ysize xrel yrel zoom flags
 
-    0 * 4	60 00 00 00
+    0 * 4	\d103
 
-    1 * 184	08 08 "ALS" 01 "Iris Gameplay Tweaks" 00 "Number of gameplay tweaks for the ..:: Surreal Hardcore ::.. server. Fewer aircrafts, no silly futuristic ones. Some realitic modern trains. Weak monorails." 00
+    1 * 209	08 08 "ALS" 01 "Iris Gameplay Tweaks" 00 "Number of gameplay tweaks for the ..:: Surreal Hardcore ::.. server. Fewer aircrafts, no silly futuristic ones. Some realitic modern trains. Weaker/realistinc monorails and maglevs." 00
 
 // aircrafts
     2 * 7	00 03 01 01 00  06 07 // sampson
@@ -42,7 +42,7 @@
     23 * 7	00 03 01 01 15  06 07 // airtaxi a33. is a large airplane for 1994-2024
     24 * 7	00 03 01 01 16  06 07 // yate aerospace yae46. is a small airplane for 1980-2010
     25 * 10	00 03 01 01 17        // dinger 100, moved towards future. small airplane for 2012-2060s
-				00 \w01-01-2012
+				00 \w01-01-2009
 				04 32 // model life 50 yr
 
     26 * 23	00 03 08 01 18        // airtaxi a34-1000 - change to very small regional
@@ -122,7 +122,7 @@
     49 * 7	00 00 01 01 0F  06 01 // 47
     50 * 7	00 00 01 01 16  06 01 // sh 125
 
-    51 * 47	00 00 11 01 FF 03 01   // flirt diesel
+    51 * 52	00 00 12 01 FF 03 01   // flirt diesel
 					00 \w01-01-2004
 					02 14 // decay speed 20
 					03 14 // life 20yr
@@ -140,6 +140,7 @@
 					16 4B // weight 75t
 					17 10 // cost factor 16 (manley-morel is 11, dash is 15, diesel are 15-17-18)
 					19 08 // traction type diesel
+					1D 01 00 00 00 // refittable
     52 * 24	04 00 00 01 FF 03 01 "'Flirt' (Diesel)" 00
 
     53 * 7	00 00 01 01 17  06 01 // sh 30
@@ -234,7 +235,7 @@
 					12 1A // image #13 - centennial
 					13 00 // not dual-headed
 					16 C0 // weight 192t
-					17 28 // cost factor 40 (centennial 30, turbotrain 35)
+					17 27 // cost factor 39 (centennial 30, turbotrain 35)
 					19 08 // traction type diesel
     73 * 25	04 00 00 01 FF 04 01 "AC6000CW (Diesel)" 00
 
@@ -336,17 +337,78 @@
     88 * 11	00 00 01 01 FF 05 01  1A FF 06 01
     89 * 11	00 00 01 01 FF 04 01  1A FF 05 01
 
-    // weaken monorail
-    90 * 8	00 00 01 01 36  0B 94 11 // power = 4500 = 0x1194
-    91 * 8	00 00 01 01 37  0B B8 0B // power = 3000 = 0x0BB8
+    // monorails
+    90 * 35	00 00 0C 01 36  // X2001 -> Hitachi 100 series (Tokyo)
+					00 \w01-01-1964
+					04 \b30 // model life time
+					07 \b15 // loading speed
+					09 \w80 // speed
+					0B \w800 // power
+					0D \b100 // rcost
+					12 10 // image #8, 'manley-morel'
+					13 01 // dual-headed
+					14 \b80 // capacity
+					16 \b32 // weight
+					17 \b12 // cost
+					1D 01 00 00 00 // refittable to pass=1 | mail=2 | armoured=400
+    91 * 35	00 00 0C 01 37  // Millenium Z1 -> Hitachi 1000 series (Osaka)
+					00 \w01-01-1989
+					04 \b30 // model life time
+					07 \b15 // loading speed
+					09 \w80 // speed
+					0B \w900 // power
+					0D \b90 // rcost
+					12 14 // image #10, 'dash'
+					13 01 // dual-headed
+					14 \b97 // capacity
+					16 \b36 // weight
+					17 \b13 // cost
+					1D 01 00 00 00 // refittable
 
-    92 * 8	0C 00 01 01 54  0B B8 0B
-    93 * 8	0C 00 01 01 55  0B B8 0B
-    94 * 8	0C 00 01 01 56  0B B8 0B
-    95 * 8	0C 00 01 01 57  0B B8 0B
+    92 * 39	00 00 0E 01 54  // Lev1 -> Hitachi/Woojin 3000 series (Daego metro)
+					00 \w01-01-2013
+					04 FF // model life time
+					05 01 // monorail
+					07 \b15 // loading speed
+					09 \w100 // speed
+					0B \w1000 // power
+					0D \b80 // rcost
+					12 34 // image #26, 'millenium z1'
+					13 01 // dual-headed
+					14 \b105 // capacity
+					16 \b40 // weight
+					17 \b16 // cost
+					19 32 // traction type monorail
+					1D 01 00 00 00 // refittable
+    93 * 7	00 00 01 01 55  06 00 // disable (Chongqing monorail?)
+
+    94 * 20	00 00 06 01 56  // Lev3 -> Shanghai Maglev Train
+					00 \w10-10-2003
+					04 \b30 // model life time
+					09 \w430 // speed
+					0B \w4600 // power
+					12 3E // image #31
+					13 01 // dual-headed
+    95 * 20	00 00 06 01 57  // Lev4 -> Chuo Shinkansen
+					00 \w01-01-2025
+					04 FF // model life unlimited yr
+					09 \w500 // speed
+					0B \w5300 // power
+					12 3E // image #31
+					13 01 // dual-headed
+
+    96 * 27	04 00 00 01 36 "100 series (Monorail)" 00 // Hitachi 100 series (Tokyo)
+    97 * 28	04 00 00 01 37 "1000 series (Monorail)" 00 // Hitachi 1000 series (Osaka)
+    98 * 28	04 00 00 01 54 "3000 series (Monorail)" 00 // Hitachi/Woojin 3000 series (Daegu metro)
+    99 * 1	0C
+    100 * 18	04 00 00 01 56 "SMT (Maglev)" 00 // Shanghai Maglev Train
+    101 * 24	04 00 00 01 57 "L0 Series (Maglev)" 00 // Chuo Shinkansen
+
+// sort
+    102 * 7	00 00 01 01 55  1A 54 // before first maglev
 
     // static info
-    96 * 66	14
+    103 * 66	14
 		"C" "INFO"
 			"B" "VRSN"  04 00  04 00 00 00   // version 4
 			"B" "MINV"  04 00  04 00 00 00   // min compatible version 4

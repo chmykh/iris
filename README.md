@@ -3,7 +3,7 @@ Iris Gameplay Tweaks
 
 Tweaks for the "..:: Surreal Hardcore ::.. // oldschool tycoon" multiplayer server.
 
-Version 3.
+Version 4.
 
 Trains
 ------
@@ -25,9 +25,12 @@ New trains for arctic/tropic climate:
 - Bombardier/Alstom 'Acela'. Introduced 2000, electric, dual-headed, weight 93t, speed 241km/h, power 6,286hp.
 - Alstom 'Avelia'. Introduced 2022, electric, dual-headed, weight 93t, speed 261km/h, power 9,531hp. Does not expire.
 
-Modifications to monorail engines:
-- 'X2001' power reduced to 4,563hp.
-- 'Millenium Z1' power reduced to 3,042hp.
+All monorails and maglevs are replaced with the following:
+- Hitachi 100 series monorail. Introduced 1964, speed 80km/h, power 811hp, capacity 80 pax/unit.
+- Hitachi 1000 series monorail. Introduced 1989, speed 80km/h, power 913hp, capacity 97 pax/unit.
+- Hitachi/Woojin 3000 series monorail. Introduced 2013, speed 100km/h, power 1014hp, capacity 105 pax/unit. Does not expire.
+- Transrapid (Shanghai Maglev Train). Introduced 2004, speed 432km/h, power 4,664hp.
+- SCMaglev L0 Series (Chuo Shinkansen). Introduced 2025, speed 502km/h, power 5,374hp.
 
 Aircrafts
 ---------
