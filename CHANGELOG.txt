@@ -2,3 +2,4 @@ Ver 1. Initial release (planes, 3 rail engines, weak monorails)
 Ver 2. Bug with 'Flirt' loading fixed; number of planes reduced even more.
 Ver 3. American trains for arctic/tropic added.
 Ver 4. Zero decay bug fixed. Monorails and maglevs added.
+Ver 5. New graphics; 'Eurosprinter' freight loco for temperate; newgrf INFO secition bug fixed.

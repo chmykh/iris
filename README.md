@@ -3,19 +3,19 @@ Iris Gameplay Tweaks
 
 Tweaks for the "..:: Surreal Hardcore ::.. // oldschool tycoon" multiplayer server.
 
-Version 4.
+Version 5.
 
 Trains
 ------
 
 New trains for temperate climate:
 - Stadler FLIRT. Introduced 2004, diesel, dual-headed, weight 150t, speed 160km/h, power 1,724hp, capacity 80pax. Does not expire.
+- Siemens EuroSprinter. Introduced 2000, electric, weight 86t, speed 231km/h, power 8,720hp. Does not expire.
 - TGV POS. Introduced 2005, electric, dual-headed, weight 90t, speed 300km/h, power 9,125hp.
 - Eurostar e320, aka British Rail Class 374. Introduced 2011, electric, dual-headed, weight 95t, speed 320km/h, power 10,139hp. Does not expire.
 
 Modifications to existing railroad engines:
-- SH40 does not expire.
-- 'Asiastar' model lifetime shortened to default 30, as it's role superseded by new e320 model.
+- SH40 and 'Asiastar' models lifetime shortened to default 30, as it's role superseded by new engines model.
 
 New trains for arctic/tropic climate:
 - GE AC6000CW. Introduced 1995, diesel, weight 192t, speed 120km/h, power 6,083hp. Does not expire.
