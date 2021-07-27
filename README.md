@@ -5,6 +5,8 @@ Tweaks for the "..:: Surreal Hardcore ::.. // oldschool tycoon" multiplayer serv
 
 Version 5.
 
+TL;DR: This mod brings diversity to 1980-2020 rail engines, and deprives default monorails and maglevs from its totally unrealistic power.
+
 Trains
 ------
 
@@ -15,7 +17,7 @@ New trains for temperate climate:
 - Eurostar e320, aka British Rail Class 374. Introduced 2011, electric, dual-headed, weight 95t, speed 320km/h, power 10,139hp. Does not expire.
 
 Modifications to existing railroad engines:
-- SH40 and 'Asiastar' models lifetime shortened to default 30, as it's role superseded by new engines model.
+- SH40 and 'Asiastar' models lifetime shortened to default 30, as it's role superseded by new engines.
 
 New trains for arctic/tropic climate:
 - GE AC6000CW. Introduced 1995, diesel, weight 192t, speed 120km/h, power 6,083hp. Does not expire.
@@ -30,18 +32,24 @@ All monorails and maglevs are replaced with the following:
 - Hitachi 1000 series monorail. Introduced 1989, speed 80km/h, power 913hp, capacity 97 pax/unit.
 - Hitachi/Woojin 3000 series monorail. Introduced 2013, speed 100km/h, power 1014hp, capacity 105 pax/unit. Does not expire.
 - Transrapid (Shanghai Maglev Train). Introduced 2004, speed 432km/h, power 4,664hp.
-- SCMaglev L0 Series (Chuo Shinkansen). Introduced 2025, speed 502km/h, power 5,374hp.
+- SCMaglev L0 Series (Chuo Shinkansen). Introduced 2025, speed 502km/h, power 5,374hp. Does not expire.
 
 Aircrafts
 ---------
 
 - FFP Dart and Bakewell Luckett LB-8 changed from 'Large Airplane' to 'Small Airplane'.
 - Darwin 200 slightly altered (becomes cheaper and earlier) to counterbalance the above.
-- Some of airplanes hidden/disabled completely. (In the default set, there are too many indistinguishable ones)
+- Some of airplanes hidden/disabled completely.
 - Futuristic airplanes graphics replaced with conventional airplanes.
 - Early turboprop graphics returned later as a small but cheap airtaxi.
 - Guru X2 Helicopter does not expore.
 - FFP Hyperdart 2 changed from supersonic to a helicopter with a speed of a jet.
+
+Miscellaneous
+-------------
+
+- Oil wells only decrease neutralizer.
+- Paper on temperate.
 
 ---
 

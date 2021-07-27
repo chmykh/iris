@@ -5,42 +5,61 @@
 // Escapes: D= = DR D+ = DF D- = DC Du* = DM D* = DnF Du<< = DnC D<< = DO D& D| Du/ D/ Du% D%
 // Format: spritenum imagefile depth xpos ypos xsize ysize xrel yrel zoom flags
 
-    0 * 4	\d209
+    0 * 4	\d246
 
     1 * -1	14
 		"C" "INFO"
 			"B" "VRSN"  04 00  05 00 00 00   // version 5
 			"B" "MINV"  04 00  05 00 00 00   // min compatible version 5
 			"T" "URL_"  00 "http://github.com/chmykh/iris" 00
-			"B" "NPAR"  01 00  05
+			"B" "NPAR"  01 00  07
 			"C" "PARA"
 				"C" 00 00 00 00
 					"T" "NAME" 00 "Enable new temperate trains" 00
+					"T" "DESC" 00 "Introduce 4 new engines for 2000-2020s" 00
 					"B" "MASK" 03 00 00 00 01
 					"B" "TYPE" 01 00 01
 					"B" "DFLT" 04 00 01 00 00 00
 					00
 				"C" 01 00 00 00
 					"T" "NAME" 00 "Enable new arctic/tropic trains" 00
+					"T" "DESC" 00 "Introduce 6 new engines (including electric) for 1980-2020s" 00
 					"B" "MASK" 03 00 00 01 01
 					"B" "TYPE" 01 00 01
 					"B" "DFLT" 04 00 01 00 00 00
 					00
 				"C" 02 00 00 00
 					"T" "NAME" 00 "Alter monorails and maglevs" 00
+					"T" "DESC" 00 "Replace default engines with weaker, slower, realistic ones" 00
 					"B" "MASK" 03 00 00 02 01
 					"B" "TYPE" 01 00 01
 					"B" "DFLT" 04 00 01 00 00 00
 					00
 				"C" 03 00 00 00
 					"T" "NAME" 00 "Alter airplanes" 00
+					"T" "DESC" 00 "Disable most futuristic and some of modern airplanes" 00
 					"B" "MASK" 03 00 00 03 01
 					"B" "TYPE" 01 00 01
 					"B" "DFLT" 04 00 01 00 00 00
 					00
 				"C" 04 00 00 00
 					"T" "NAME" 00 "Use new graphics" 00
+					"T" "DESC" 00 "Update visual appearence of the new engines. If disabled, all the new engines will re-use existing sprites from a base graphics set. This makes sense for playing with non-default base set (32bpp, night)" 00
 					"B" "MASK" 03 00 00 04 01
+					"B" "TYPE" 01 00 01
+					"B" "DFLT" 04 00 01 00 00 00
+					00
+				"C" 05 00 00 00
+					"T" "NAME" 00 "Oil wells only decrease neutralizer" 00
+					"T" "DESC" 00 "Make oil wells behave as any other industry on temperate" 00
+					"B" "MASK" 03 00 00 05 01
+					"B" "TYPE" 01 00 01
+					"B" "DFLT" 04 00 01 00 00 00
+					00
+				"C" 06 00 00 00
+					"T" "NAME" 00 "Paper on temperate" 00
+					"T" "DESC" 00 "Bring paper mills, printing works, and corresponding vehicles to temperate" 00
+					"B" "MASK" 03 00 00 06 01
 					"B" "TYPE" 01 00 01
 					"B" "DFLT" 04 00 01 00 00 00
 					00
@@ -51,7 +70,6 @@
 
     2 * 209	08 08 "ALS" 01 "Iris Gameplay Tweaks" 00 "Number of gameplay tweaks for the ..:: Surreal Hardcore ::.. server. Fewer aircrafts, no silly futuristic ones. Some realistic modern trains. Weaker/realistic monorails and maglevs." 00
 
-//    3 * 9	07 88 04 \7G FF 4F 54 01 \b38 // <--- skip b38 if opengfx base set!
 
 // aircrafts
     -1 * 6	07 00 00 \70 03 \b38 // skip aircrafts if unwanted
@@ -244,7 +262,7 @@
     -1 * 9	00 00 01 01 FF 0A 01  1A 36 // asiasprinter before first monorial
 
 // arctic/tropic trains
-    69 * 6	07 00 00 \70 01 \b26 // skip american if unwanted
+    69 * 6	07 00 00 \70 01 \b26 // skip it if unwanted
 
     -1 * 7	00 00 01 01 01  06 06 // mjs250
     -1 * 7	00 00 01 01 07  06 06 // wills
@@ -442,6 +460,9 @@
     -1 * 7	00 00 01 01 55  1A 54 // sort last monorail before first maglev
 
 // new graphics
+
+// BUG: electric loco, and flirt, in train list aligned incorrectly (no pantograph, and too high)
+
     // flirt
     -1 * 4	01 00 01 08
     -1 sprites/flirt.png 8bpp 0 0 8 21 -3 -11 normal
@@ -485,6 +506,24 @@
     -1 * 9	02 00 04 01 01 01 00 01 00 // set 4, recoloured sh
     -1 * 9	02 00 05 01 01 02 00 02 00 // set 5, siemens = eurosprinter
 
+    -1 * 4	01 00 03 04
+    -1 sprites/electric_old.png 8bpp 0 0 8 18 -3 -10 normal
+    -1 sprites/electric_old.png 8bpp 16 0 20 15 -14 -6 normal
+    -1 sprites/electric_old.png 8bpp 48 0 28 12 -14 -6 normal
+    -1 sprites/electric_old.png 8bpp 96 0 20 15 -4 -7 normal
+    -1 sprites/electric_old.png 8bpp 128 0 8 18 -3 -10 normal
+    -1 sprites/electric_old.png 8bpp 144 0 20 15 -14 -6 normal
+    -1 sprites/electric_old.png 8bpp 176 0 28 12 -14 -6 normal
+    -1 sprites/electric_old.png 8bpp 224 0 20 15 -4 -7 normal
+    -1 sprites/electric_old.png 8bpp 0 28 8 18 -3 -10 normal
+    -1 sprites/electric_old.png 8bpp 16 28 20 15 -14 -6 normal
+    -1 sprites/electric_old.png 8bpp 48 28 28 12 -14 -6 normal
+    -1 sprites/electric_old.png 8bpp 96 28 20 15 -4 -7 normal
+    -1 * 9	02 00 23 01 01 00 00 00 00 // set 23, bombardier
+    -1 * 9	02 00 24 01 01 01 00 01 00 // set 24, recoloured sh
+    -1 * 9	02 00 25 01 01 02 00 02 00 // set 25, siemens = eurosprinter
+
+
     // monorails
     -1 * 4	01 00 03 04
     -1 sprites/mono.png 8bpp 0 0 8 18 -3 -12 normal
@@ -524,7 +563,8 @@
     -1 * 9	02 00 10 01 01 00 00 00 00 // set 10, smt
     -1 * 9	02 00 11 01 01 01 00 01 00 // set 11, shinkansen
 
-    -1 * 6	07 00 00 \70 04 \b37 // skip everything if new graphics unwanted
+    -1 * 6	07 00 00 \70 04 E0 // skip everything if new graphics unwanted
+    -1 * 9	07 88 04 \7gg FF 4F 54 01 \b28 // skip if base set is not opengfx
     -1 * 6	07 00 00 \70 00 \b8 // skip if no temperate trains
 
     -1 * 9	03 00 01 FF 03 01 00 00 00 // flirt
@@ -560,5 +600,65 @@
     -1 * 7	00 00 01 01 56 12 FD
     -1 * 7	00 00 01 01 57 12 FD
 
-    209 * 1	0C // end of file
+    -1 * 6	07 9A 01 \71 00 E0 // unconditional jump over the next section
 
+ // jump to here if graphics is not opengfx
+    -1 * 9	03 00 01 FF 05 01 00 24 00
+    -1 * 9	03 00 01 FF 06 01 00 23 00
+    -1 * 9	03 00 01 FF 07 01 00 25 00
+    -1 * 9	00 00 01 01 FF 05 01 12 FD
+    -1 * 9	00 00 01 01 FF 06 01 12 FD
+    -1 * 9	00 00 01 01 FF 07 01 12 FD     
+
+    -1 * 2	10 E0 // end of new graphics section
+
+   234 * 6	07 00 00 \70 05 \b1 // skip oil wells if unwanted
+    -1 * 14	00 0A 03 01 0B // alter industry 0B, oil wells
+				08 0B // all properties of oil wells
+				09 0B // hide original oil wells
+				1A 00 00 00 00 // special flag = 0; can increase production, and can appear after 1950
+
+   236 * 6	07 00 00 \70 06 \b9 // skip paper if unwanted
+    -1 * 6	07 83 01 \7! 00 \b8 // skip paper if we are not on temperate
+
+    -1 * 36	00 0B 0B 01 0B // alter cargo 0B, paper
+				08 1B // refer to built-in knowledge about paper on temprate?
+				09 1F 00
+				0A 3F 00
+				0B 5F 00
+				0C 7F 00
+				0D 9F 00
+				0E D9 10
+				0F 10
+				10 07
+				11 3C
+				12 55 15 00 00
+    -1 * 24	00 09 03 04 00 // industry tiles, 3 properties for 4 items
+				08  "+,-." // 2B 2C 2D 2E
+				09  "+,-." // 2B 2C 2D 2E
+				0B  1B 08  1B 08  1B 08  1B 08
+				
+
+    -1 * 23	00 0A 07 01 00 // alter industry 00
+				08 0E // all properties of paper mill
+				09 0E
+				10 1B FF // produces paper
+				11 07 FF FF 00 // accepts wood
+				17 05 // probab in newgame
+				18 02 // probab ingame
+				19 0F // color
+    -1 * 23	00 0A 07 01 01 // alter industry 01
+				08 07 // all properties of printing works
+				09 07
+				10 05 FF
+				11 1B FF FF 00
+				17 05
+				18 02
+				19 B0 // color
+
+    -1 * 13	00 01 02 03 2B 06 03 03 03 10 1B 1B 1B // cars 2B, 2C, 2D available on all climates
+    -1 * 9	00 00 02 01 27 06 03 15 1B // paper truck, cargo type 0B
+    -1 * 9	00 00 02 01 45 06 03 15 1B // mono paper truck, cargo type 0B
+    -1 * 9	00 00 02 01 65 06 03 15 1B // maglev paper truck, cargo type 0B
+
+   246 * 1	0C // end of file
