@@ -5,25 +5,71 @@
 // Escapes: D= = DR D+ = DF D- = DC Du* = DM D* = DnF Du<< = DnC D<< = DO D& D| Du/ D/ Du% D%
 // Format: spritenum imagefile depth xpos ypos xsize ysize xrel yrel zoom flags
 
-    0 * 4	\d103
+    0 * 4	\d209
 
-    1 * 209	08 08 "ALS" 01 "Iris Gameplay Tweaks" 00 "Number of gameplay tweaks for the ..:: Surreal Hardcore ::.. server. Fewer aircrafts, no silly futuristic ones. Some realitic modern trains. Weaker/realistinc monorails and maglevs." 00
+    1 * -1	14
+		"C" "INFO"
+			"B" "VRSN"  04 00  05 00 00 00   // version 5
+			"B" "MINV"  04 00  05 00 00 00   // min compatible version 5
+			"T" "URL_"  00 "http://github.com/chmykh/iris" 00
+			"B" "NPAR"  01 00  05
+			"C" "PARA"
+				"C" 00 00 00 00
+					"T" "NAME" 00 "Enable new temperate trains" 00
+					"B" "MASK" 03 00 00 00 01
+					"B" "TYPE" 01 00 01
+					"B" "DFLT" 04 00 01 00 00 00
+					00
+				"C" 01 00 00 00
+					"T" "NAME" 00 "Enable new arctic/tropic trains" 00
+					"B" "MASK" 03 00 00 01 01
+					"B" "TYPE" 01 00 01
+					"B" "DFLT" 04 00 01 00 00 00
+					00
+				"C" 02 00 00 00
+					"T" "NAME" 00 "Alter monorails and maglevs" 00
+					"B" "MASK" 03 00 00 02 01
+					"B" "TYPE" 01 00 01
+					"B" "DFLT" 04 00 01 00 00 00
+					00
+				"C" 03 00 00 00
+					"T" "NAME" 00 "Alter airplanes" 00
+					"B" "MASK" 03 00 00 03 01
+					"B" "TYPE" 01 00 01
+					"B" "DFLT" 04 00 01 00 00 00
+					00
+				"C" 04 00 00 00
+					"T" "NAME" 00 "Use new graphics" 00
+					"B" "MASK" 03 00 00 04 01
+					"B" "TYPE" 01 00 01
+					"B" "DFLT" 04 00 01 00 00 00
+					00
+				00
+			00
+		00
+
+
+    2 * 209	08 08 "ALS" 01 "Iris Gameplay Tweaks" 00 "Number of gameplay tweaks for the ..:: Surreal Hardcore ::.. server. Fewer aircrafts, no silly futuristic ones. Some realistic modern trains. Weaker/realistic monorails and maglevs." 00
+
+//    3 * 9	07 88 04 \7G FF 4F 54 01 \b38 // <--- skip b38 if opengfx base set!
 
 // aircrafts
-    2 * 7	00 03 01 01 00  06 07 // sampson
-    3 * 7	00 03 01 01 01  06 07 // coleman
-    4 * 7	00 03 01 01 02  0A 00 // ffp dart. change to small. cost is 16, rcost is 130
-    5 * 7	00 03 01 01 03  06 07 // yate haugan
-    6 * 7	00 03 01 01 04  06 07 // bakewell cotswald
-    7 * 7	00 03 01 01 05  0A 00 // bakewell luckett lb8. change to small; with capacity 200:30 it becomes rather effective. cost is 18, rcost is 240
-    8 * 7	00 03 01 01 06  06 00 // bakewell luckett - DISABLE
-    9 * 7	00 03 01 01 07  06 00 // bakewell luckett - DISABLE
-    10 * 7	00 03 01 01 08  06 00 // bakewell luckett - DISABLE
-    11 * 7	00 03 01 01 09  06 00 // bakewell luckett - DISABLE
-    12 * 7	00 03 01 01 0A  06 00 // yate aerospace yac 1-11 - DISABLE
-    13 * 7	00 03 01 01 0B  06 00 // darwin 100 - DISABLE
+    -1 * 6	07 00 00 \70 03 \b38 // skip aircrafts if unwanted
 
-    14 * 19	00 03 06 01 0C        // darwin 200. make earlier and cheaper, so could compete with modified bakewell lucket lb8
+    -1 * 7	00 03 01 01 00  06 07 // sampson
+    -1 * 7	00 03 01 01 01  06 07 // coleman
+    -1 * 7	00 03 01 01 02  0A 00 // ffp dart. change to small. cost is 16, rcost is 130
+    -1 * 7	00 03 01 01 03  06 07 // yate haugan
+    -1 * 7	00 03 01 01 04  06 07 // bakewell cotswald
+    -1 * 7	00 03 01 01 05  0A 00 // bakewell luckett lb8. change to small; with capacity 200:30 it becomes rather effective. cost is 18, rcost is 240
+    -1 * 7	00 03 01 01 06  06 00 // bakewell luckett - DISABLE
+    -1 * 7	00 03 01 01 07  06 00 // bakewell luckett - DISABLE
+    -1 * 7	00 03 01 01 08  06 00 // bakewell luckett - DISABLE
+    -1 * 7	00 03 01 01 09  06 00 // bakewell luckett - DISABLE
+    -1 * 7	00 03 01 01 0A  06 00 // yate aerospace yac 1-11 - DISABLE
+    -1 * 7	00 03 01 01 0B  06 00 // darwin 100 - DISABLE
+
+    -1 * 19	00 03 06 01 0C        // darwin 200. make earlier and cheaper, so could compete with modified bakewell lucket lb8
 				00 \w01-01-1960
 				0F C8 00 // capacity pax 200
 				11 1E // capacity mail 30
@@ -31,21 +77,21 @@
 				0E 78 // rcost is 120
 				04 19 // model life 25yr
 
-    15 * 7	00 03 01 01 0D  04 32 // darwin 300. model time 50yr. is a super-large airplane for 1960-2010
-    16 * 7	00 03 01 01 0E  06 00 // darwin 400 - DISABLE
-    17 * 7	00 03 01 01 0F  06 00 // darwin 500 - DISABLE
-    18 * 7	00 03 01 01 10  06 00 // darwin 600 - DISABLE
-    19 * 7	00 03 01 01 11  06 07 // guru galaxy. is a large airplane for 1970-2000
-    20 * 7	00 03 01 01 12  06 00 // airtaxi a21 - DISABLE
-    21 * 7	00 03 01 01 13  06 00 // airtaxi a31 - DISABLE
-    22 * 7	00 03 01 01 14  06 00 // airtaxi a32 - DISABLE
-    23 * 7	00 03 01 01 15  06 07 // airtaxi a33. is a large airplane for 1994-2024
-    24 * 7	00 03 01 01 16  06 07 // yate aerospace yae46. is a small airplane for 1980-2010
-    25 * 10	00 03 01 01 17        // dinger 100, moved towards future. small airplane for 2012-2060s
+    -1 * 7	00 03 01 01 0D  04 32 // darwin 300. model time 50yr. is a super-large airplane for 1960-2010
+    -1 * 7	00 03 01 01 0E  06 00 // darwin 400 - DISABLE
+    -1 * 7	00 03 01 01 0F  06 00 // darwin 500 - DISABLE
+    -1 * 7	00 03 01 01 10  06 00 // darwin 600 - DISABLE
+    -1 * 7	00 03 01 01 11  06 07 // guru galaxy. is a large airplane for 1970-2000
+    -1 * 7	00 03 01 01 12  06 00 // airtaxi a21 - DISABLE
+    -1 * 7	00 03 01 01 13  06 00 // airtaxi a31 - DISABLE
+    -1 * 7	00 03 01 01 14  06 00 // airtaxi a32 - DISABLE
+    -1 * 7	00 03 01 01 15  06 07 // airtaxi a33. is a large airplane for 1994-2024
+    -1 * 7	00 03 01 01 16  06 07 // yate aerospace yae46. is a small airplane for 1980-2010
+    -1 * 10	00 03 01 01 17        // dinger 100, moved towards future. small airplane for 2012-2060s
 				00 \w01-01-2009
 				04 32 // model life 50 yr
 
-    26 * 23	00 03 08 01 18        // airtaxi a34-1000 - change to very small regional
+    -1 * 23	00 03 08 01 18        // airtaxi a34-1000 - change to very small regional
 				08 02 // sprite #1
 				00 \w01-01-1983
 				0F 19 00 // capacity pax 25
@@ -55,7 +101,7 @@
 				0E 46 // rcost is 70
 				04 FF // model life unlimited
 
-    27 * 23	00 03 08 01 19        // yate z-shuttle - change to small regional
+    -1 * 23	00 03 08 01 19        // yate z-shuttle - change to small regional
 				08 0A // sprite #5
 				00 \w01-01-2012				
 				0F 1E 00 // capacity pax 30
@@ -65,7 +111,7 @@
 				0E 40 // rcost is 64
                                 04 FF // model life unlimited
 
-    28 * 18	00 03 06 01 1A        // kelling k1 - change to small regional
+    -1 * 18	00 03 06 01 1A        // kelling k1 - change to small regional
 				08 00 // sprite #0
 				00 \w01-01-2030
 				0C 28 // speed 40 units (as guru x2 heli)
@@ -73,56 +119,44 @@
 				0E 3C // rcost is 60
                                 04 FF // model life unlimited
     
-    29 * 7	00 03 01 01 1B  08 08 // kelling k6, sprite #4, large airplane for 2026-2070s
-    30 * 7	00 03 01 01 1C  06 00 // kelling k7 - DISABLE
-    31 * 7	00 03 01 01 1D  08 06 // darwin 700, sprite #3, large airplane for 2042-2070s
+    -1 * 7	00 03 01 01 1B  08 08 // kelling k6, sprite #4, large airplane for 2026-2070s
+    -1 * 7	00 03 01 01 1C  06 00 // kelling k7 - DISABLE
+    -1 * 7	00 03 01 01 1D  08 06 // darwin 700, sprite #3, large airplane for 2042-2070s
 
-    32 * 09	00 03 02 01 1E        // hyperdart becomes a heli
+    -1 * 09	00 03 02 01 1E        // hyperdart becomes a heli
 				0C 4A // speed as jet airplanes
 				09 00 // ...but VTOL
-    33 * 12	00 03 03 01 1F        // dinger 200 -> a380
+    -1 * 12	00 03 03 01 1F        // dinger 200 -> a380
 				08 0E // sprite #7 (b747)
 				00 \w01-01-2007
 				04 FF // model life unlimited
-    34 * 12	00 03 03 01 20        // dinger 1000, futuristic supersonic
+    -1 * 12	00 03 03 01 20        // dinger 1000, futuristic supersonic
 				08 10 // sprite #5 (concorde)
 				00 \w01-01-2023
 				04 FF // model life unlimited
 
-    35 * 7	00 03 01 01 26  06 07 // tricario heli
-    36 * 7	00 03 01 01 27  04 FF // guru x2 heli, model life unlimited
+    -1 * 7	00 03 01 01 26  06 07 // tricario heli
+    -1 * 7	00 03 01 01 27  04 FF // guru x2 heli, model life unlimited
 
+    -1 * 10	04 03 00 01 18 "RT 1" 00
+    -1 * 10	04 03 00 01 19 "RT 2" 00
+    -1 * 10	04 03 00 01 1A "RT 3" 00 
 
-    37 * 13	04 03 00 01 18 "Light 1" 00
-    38 * 13	04 03 00 01 19 "Light 2" 00
-    39 * 13	04 03 00 01 1A "Light 3" 00 
+// temperate trains
+    42 * 6	07 00 00 \70 00 \b26 // skip temperate if unwanted
+    
+    -1 * 7	00 00 01 01 00  06 01 // kirby
+    -1 * 7	00 00 01 01 08  06 01 // jubilee
+    -1 * 7	00 00 01 01 09  06 01 // ginzu
+    -1 * 7	00 00 01 01 0A  06 01 // sh 8p
+    -1 * 7	00 00 01 01 0B  06 01 // manley-morel
+    -1 * 7	00 00 01 01 0C  06 01 // dash
+    -1 * 7	00 00 01 01 0D  06 01 // 25
+    -1 * 7	00 00 01 01 0E  06 01 // 37
+    -1 * 7	00 00 01 01 0F  06 01 // 47
+    -1 * 7	00 00 01 01 16  06 01 // sh 125
 
-// Existing sprites are:
-// 0 = coleman
-// 1 = sampson
-// 2 = ffp dart (small jet, longer one)
-// 3 = trijet
-// 4 = no-livery jet
-// 5 = bakewell cotswald
-// 6 = bakewell lucket lb-8 (small jet, shorter one)
-// 7 = double-deck jet
-// 8 = supersonic
-
-    40 * 1	0C
-
-// trains
-    41 * 7	00 00 01 01 00  06 01 // kirby
-    42 * 7	00 00 01 01 08  06 01 // jubilee
-    43 * 7	00 00 01 01 09  06 01 // ginzu
-    44 * 7	00 00 01 01 0A  06 01 // sh 8p
-    45 * 7	00 00 01 01 0B  06 01 // manley-morel
-    46 * 7	00 00 01 01 0C  06 01 // dash
-    47 * 7	00 00 01 01 0D  06 01 // 25
-    48 * 7	00 00 01 01 0E  06 01 // 37
-    49 * 7	00 00 01 01 0F  06 01 // 47
-    50 * 7	00 00 01 01 16  06 01 // sh 125
-
-    51 * 52	00 00 12 01 FF 03 01   // flirt diesel
+    -1 * 52	00 00 12 01 FF 03 01   // flirt diesel
 					00 \w01-01-2004
 					02 14 // decay speed 20
 					03 14 // life 20yr
@@ -141,13 +175,13 @@
 					17 10 // cost factor 16 (manley-morel is 11, dash is 15, diesel are 15-17-18)
 					19 08 // traction type diesel
 					1D 01 00 00 00 // refittable
-    52 * 24	04 00 00 01 FF 03 01 "'Flirt' (Diesel)" 00
+    -1 * 24	04 00 00 01 FF 03 01 "'Flirt' (Diesel)" 00
 
-    53 * 7	00 00 01 01 17  06 01 // sh 30
-    54 * 7	00 00 01 01 18  04 FF // sh 40, set lifetime unlimited
-    55 * 7	00 00 01 01 19  06 01 // t.i.m.
+    -1 * 7	00 00 01 01 17  06 01 // sh 30
+    -1 * 7	00 00 01 01 18  04 1E // sh 30, set lifetime be 30, not 80
+    -1 * 7	00 00 01 01 19  06 01 // t.i.m.
 
-    56 * 43	00 00 0F 01 FF 02 01  // newer tgv, 2005yr, 300kph, 9200hp
+    -1 * 43	00 00 0F 01 FF 02 01  // newer tgv, 2005yr, 300kph, 9200hp
 					00 \w01-01-2005
 					02 14 // decay speed 20
 					03 19 // life 25yr
@@ -163,11 +197,11 @@
 					16 5A // weight 90t as tim
 					17 29 // cost factor 41 (tim is 40, asiastar is 43)
 					19 28 // traction type electric
-    57 * 31	04 00 00 01 FF 02 01  "'T.I.M.' POS (Electric)" 00
+    -1 * 31	04 00 00 01 FF 02 01  "'T.I.M.' POS (Electric)" 00
 
-    58 * 7	00 00 01 01 1A  04 1E  // model lifetime of old asiastar be 30, not 50
+    -1 * 7	00 00 01 01 1A  04 1E  // model lifetime of old asiastar be 30, not 50
 
-    59 * 43	00 00 0F 01 FF 01 01  // newer eurostar (class 374), 2011yr, 320kph, 10000hp
+    -1 * 43	00 00 0F 01 FF 01 01  // newer eurostar (class 374), 2011yr, 320kph, 10000hp
 					00 \w01-01-2011
 					02 14 // decay speed 20
 					03 19 // life 25 yr
@@ -183,45 +217,45 @@
 					16 5F // weight 95t as asiastar
 					17 2C // cost factor 44 (asiastar is 43)
 					19 28 // traction type electric
-    60 * 34	04 00 00 01 FF 01 01 "'AsiaStar' e320 (Electric)" 00
+    -1 * 34	04 00 00 01 FF 01 01 "'AsiaStar' e320 (Electric)" 00
+
+    -1 * 43	00 00 0F 01 FF 0A 01  // siemens eurosprinter, 200yr, 230km/h, 8600hp
+					00 \w01-01-2000
+					02 14 // decay speed 20
+					03 19 // life 25 yr
+					04 FF // model life unlimited yr
+					06 01 // climate temp
+					05 00 // rail
+					09 E6 00 // speed 230kph
+					0B 98 21 // power 86000
+					0D DC // running cost 220 (sh40 is 205)
+					0E 3C 4C 00 00 // running cost base
+					12 28 // image #20
+					13 00 // not dual-headed
+					16 56 // weight 86t
+					17 23 // cost factor 35 (sh40 30)
+					19 28 // traction type electric
+    -1 * 33	04 00 00 01 FF 0A 01 "'AsiaSprinter' (Electric)" 00
 
     // sort vehicle list
-    61 * 9	00 00 01 01 FF 03 01  1A 0D // flirt before first diesel
-    62 * 9	00 00 01 01 FF 02 01  1A 1A // new tgv before old asiastar
-    63 * 9	00 00 01 01 FF 01 01  1A 36 // new asiastar before first monorial
+    -1 * 9	00 00 01 01 FF 03 01  1A 0D // flirt before first diesel
+    -1 * 9	00 00 01 01 FF 02 01  1A 1A // new tgv before old asiastar
+    -1 * 9	00 00 01 01 FF 01 01  1A 36 // new asiastar before first monorial
+    -1 * 9	00 00 01 01 FF 0A 01  1A 36 // asiasprinter before first monorial
 
-// Budd RDC : 1949, 137kph, 550hp/unit ? 
-// Budd Metroliner : 1967, 160kph, 1000hp ?
+// arctic/tropic trains
+    69 * 6	07 00 00 \70 01 \b26 // skip american if unwanted
 
-//    61 * 43	0C 00 0F 01 FF 04 01  // GE E60 - DISABLED
-//					00 \w01-01-1972
-//					02 14 // decay speed 20
-//					03 14 // life 20 yr
-//					04 14 // model life 20 yr
-//					06 00 // climate america
-//					05 00 // rail
-//					09 8C 00 // speed 140kph (144?)
-//					0B 70 17 // power 6000 (6083?)
-//					0D FF // runing cost 255 (asiastar is 250) ??????
-//					0E 3C 4C 00 00 // running cost base ??????
-//					12 28 // image #20 ??????
-//					13 00 // not dual-headed
-//					16 5C // weight 92t
-//					17 2C // cost factor 44 (asiastar is 43) ??????
-//					19 28 // traction type electric
-//    62 * 22	0C 00 00 01 FF 04 01 "E60 (Electric)" 00
-
-    64 * 7	00 00 01 01 01  06 06 // mjs250
-    65 * 7	00 00 01 01 07  06 06 // wills
-    66 * 7	00 00 01 01 10  06 06 // cs4000
-    67 * 7	00 00 01 01 11  06 06 // cs2400
-    68 * 7	00 00 01 01 12  06 06 // centennial
-    69 * 7	00 00 01 01 13  06 06 // kelling
-    70 * 7	00 00 01 01 14  06 06 // turner turbo
-    71 * 7	00 00 01 01 15  06 06 // mjs1000
+    -1 * 7	00 00 01 01 01  06 06 // mjs250
+    -1 * 7	00 00 01 01 07  06 06 // wills
+    -1 * 7	00 00 01 01 10  06 06 // cs4000
+    -1 * 7	00 00 01 01 11  06 06 // cs2400
+    -1 * 7	00 00 01 01 12  06 06 // centennial
+    -1 * 7	00 00 01 01 13  06 06 // kelling
+    -1 * 7	00 00 01 01 14  06 06 // turner turbo
+    -1 * 7	00 00 01 01 15  06 06 // mjs1000
   
-
-    72 * 43	00 00 0F 01 FF 04 01  // GE AC6000CW
+    -1 * 43	00 00 0F 01 FF 04 01  // GE AC6000CW
 					00 \w01-01-1995
 					02 14 // decay speed 20
 					03 19 // life 25 yr
@@ -237,9 +271,9 @@
 					16 C0 // weight 192t
 					17 27 // cost factor 39 (centennial 30, turbotrain 35)
 					19 08 // traction type diesel
-    73 * 25	04 00 00 01 FF 04 01 "AC6000CW (Diesel)" 00
+    -1 * 25	04 00 00 01 FF 04 01 "AC6000CW (Diesel)" 00
 
-    74 * 43	00 00 0F 01 FF 05 01  // EMD AEM-7
+    -1 * 43	00 00 0F 01 FF 05 01  // EMD AEM-7
 					00 \w01-01-1978
 					02 14 // decay speed 20
 					03 19 // life 25 yr
@@ -255,9 +289,9 @@
 					16 5C // weight 92t
 					17 24 // cost factor 36
 					19 28 // traction type electric
-    75 * 24	04 00 00 01 FF 05 01 "AEM-7 (Electric)" 00
+    -1 * 24	04 00 00 01 FF 05 01 "AEM-7 (Electric)" 00
 
-    76 * 43	00 00 0F 01 FF 06 01  // Bombardier ALP-46
+    -1 * 43	00 00 0F 01 FF 06 01  // Bombardier ALP-46
 					00 \w01-01-2001
 					02 14 // decay speed 20
 					03 19 // life 25 yr
@@ -273,9 +307,9 @@
 					16 5A // weight 90t
 					17 26 // cost factor 38
 					19 28 // traction type electric
-    77 * 25	04 00 00 01 FF 06 01 "ALP-46 (Electric)" 00
+    -1 * 25	04 00 00 01 FF 06 01 "ALP-46 (Electric)" 00
 
-    78 * 43	00 00 0F 01 FF 07 01  // Siemens ACS-64
+    -1 * 43	00 00 0F 01 FF 07 01  // Siemens ACS-64
 					00 \w01-01-2012
 					02 14 // decay speed 20
 					03 19 // life 25 yr
@@ -291,9 +325,9 @@
 					16 5A // weight 90t
 					17 28 // cost factor 40
 					19 28 // traction type electric
-    79 * 25	04 00 00 01 FF 07 01 "ACS-64 (Electric)" 00
+    -1 * 25	04 00 00 01 FF 07 01 "ACS-64 (Electric)" 00
 
-    80 * 43	00 00 0F 01 FF 08 01  // Acela
+    -1 * 43	00 00 0F 01 FF 08 01  // Acela
 					00 \w01-01-2000
 					02 14 // decay speed 20
 					03 19 // life 25 yr
@@ -309,9 +343,9 @@
 					16 5D // weight 93t
 					17 2A // cost factor 42
 					19 28 // traction type electric
-    81 * 26	04 00 00 01 FF 08 01 "'Acela' (Electric)" 00
+    -1 * 26	04 00 00 01 FF 08 01 "'Acela' (Electric)" 00
 
-    82 * 43	00 00 0F 01 FF 09 01  // Avelia
+    -1 * 43	00 00 0F 01 FF 09 01  // Avelia
 					00 \w01-01-2022
 					02 14 // decay speed 20
 					03 19 // life 25 yr
@@ -327,18 +361,20 @@
 					16 5D // weight 93t
 					17 2C // cost factor 44
 					19 28 // traction type electric
-    83 * 27	04 00 00 01 FF 09 01 "'Avelia' (Electric)" 00
+    -1 * 27	04 00 00 01 FF 09 01 "'Avelia' (Electric)" 00
     
     // sort list
-    84 * 9	00 00 01 01 FF 09 01  1A 36 // avelia before first monorail
-    85 * 11	00 00 01 01 FF 08 01  1A FF 09 01
-    86 * 11	00 00 01 01 FF 07 01  1A FF 08 01
-    87 * 11	00 00 01 01 FF 06 01  1A FF 07 01
-    88 * 11	00 00 01 01 FF 05 01  1A FF 06 01
-    89 * 11	00 00 01 01 FF 04 01  1A FF 05 01
+    -1 * 9	00 00 01 01 FF 09 01  1A 36 // avelia before first monorail
+    -1 * 11	00 00 01 01 FF 08 01  1A FF 09 01
+    -1 * 11	00 00 01 01 FF 07 01  1A FF 08 01
+    -1 * 11	00 00 01 01 FF 06 01  1A FF 07 01
+    -1 * 11	00 00 01 01 FF 05 01  1A FF 06 01
+    -1 * 11	00 00 01 01 FF 04 01  1A FF 05 01
 
-    // monorails
-    90 * 35	00 00 0C 01 36  // X2001 -> Hitachi 100 series (Tokyo)
+// mono/maglevs
+    96 * 6	07 00 00 \70 02 \b12 // skip mono/maglevs if unwanted
+
+    -1 * 35	00 00 0C 01 36  // X2001 -> Hitachi 100 series (Tokyo)
 					00 \w01-01-1964
 					04 \b30 // model life time
 					07 \b15 // loading speed
@@ -351,7 +387,7 @@
 					16 \b32 // weight
 					17 \b12 // cost
 					1D 01 00 00 00 // refittable to pass=1 | mail=2 | armoured=400
-    91 * 35	00 00 0C 01 37  // Millenium Z1 -> Hitachi 1000 series (Osaka)
+    -1 * 35	00 00 0C 01 37  // Millenium Z1 -> Hitachi 1000 series (Osaka)
 					00 \w01-01-1989
 					04 \b30 // model life time
 					07 \b15 // loading speed
@@ -365,7 +401,7 @@
 					17 \b13 // cost
 					1D 01 00 00 00 // refittable
 
-    92 * 39	00 00 0E 01 54  // Lev1 -> Hitachi/Woojin 3000 series (Daego metro)
+    -1 * 39	00 00 0E 01 54  // Lev1 -> Hitachi/Woojin 3000 series (Daego metro)
 					00 \w01-01-2013
 					04 FF // model life time
 					05 01 // monorail
@@ -380,16 +416,16 @@
 					17 \b16 // cost
 					19 32 // traction type monorail
 					1D 01 00 00 00 // refittable
-    93 * 7	00 00 01 01 55  06 00 // disable (Chongqing monorail?)
+    -1 * 7	00 00 01 01 55  06 00 // disable (Chongqing monorail?)
 
-    94 * 20	00 00 06 01 56  // Lev3 -> Shanghai Maglev Train
+    -1 * 20	00 00 06 01 56  // Lev3 -> Shanghai Maglev Train
 					00 \w10-10-2003
-					04 \b30 // model life time
+					04 \b50 // model life time
 					09 \w430 // speed
 					0B \w4600 // power
 					12 3E // image #31
 					13 01 // dual-headed
-    95 * 20	00 00 06 01 57  // Lev4 -> Chuo Shinkansen
+    -1 * 20	00 00 06 01 57  // Lev4 -> Chuo Shinkansen
 					00 \w01-01-2025
 					04 FF // model life unlimited yr
 					09 \w500 // speed
@@ -397,24 +433,132 @@
 					12 3E // image #31
 					13 01 // dual-headed
 
-    96 * 27	04 00 00 01 36 "100 series (Monorail)" 00 // Hitachi 100 series (Tokyo)
-    97 * 28	04 00 00 01 37 "1000 series (Monorail)" 00 // Hitachi 1000 series (Osaka)
-    98 * 28	04 00 00 01 54 "3000 series (Monorail)" 00 // Hitachi/Woojin 3000 series (Daegu metro)
-    99 * 1	0C
-    100 * 18	04 00 00 01 56 "SMT (Maglev)" 00 // Shanghai Maglev Train
-    101 * 24	04 00 00 01 57 "L0 Series (Maglev)" 00 // Chuo Shinkansen
+    -1 * 27	04 00 00 01 36 "100 series (Monorail)" 00 // Hitachi 100 series (Tokyo)
+    -1 * 28	04 00 00 01 37 "1000 series (Monorail)" 00 // Hitachi 1000 series (Osaka)
+    -1 * 28	04 00 00 01 54 "3000 series (Monorail)" 00 // Hitachi/Woojin 3000 series (Daegu metro)
+    -1 * 18	04 00 00 01 56 "SMT (Maglev)" 00 // Shanghai Maglev Train
+    -1 * 24	04 00 00 01 57 "L0 Series (Maglev)" 00 // Chuo Shinkansen
 
-// sort
-    102 * 7	00 00 01 01 55  1A 54 // before first maglev
+    -1 * 7	00 00 01 01 55  1A 54 // sort last monorail before first maglev
 
-    // static info
-    103 * 66	14
-		"C" "INFO"
-			"B" "VRSN"  04 00  04 00 00 00   // version 4
-			"B" "MINV"  04 00  04 00 00 00   // min compatible version 4
-			"T" "URL_" 00 "http://github.com/chmykh/iris" 00
-			00
-		00
+// new graphics
+    // flirt
+    -1 * 4	01 00 01 08
+    -1 sprites/flirt.png 8bpp 0 0 8 21 -3 -11 normal
+    -1 sprites/flirt.png 8bpp 16 0 20 16 -14 -9 normal
+    -1 sprites/flirt.png 8bpp 48 0 28 12 -15 -8 normal
+    -1 sprites/flirt.png 8bpp 96 0 20 16 -6 -9 normal
+    -1 sprites/flirt.png 8bpp 128 0 8 21 -3 -11 normal
+    -1 sprites/flirt.png 8bpp 144 0 20 16 -14 -9 normal
+    -1 sprites/flirt.png 8bpp 176 0 28 12 -15 -8 normal
+    -1 sprites/flirt.png 8bpp 224 0 20 16 -6 -9 normal
+    -1 * 9	02 00 00 01 01 00 00 00 00 // set 0, flirt loco
 
+    // flirt cars
+    -1 * 4	01 00 02 04
+    -1 sprites/flirt.png 8bpp 0 28 8 21 -3 -11 normal
+    -1 sprites/flirt.png 8bpp 16 28 20 16 -14 -9 normal
+    -1 sprites/flirt.png 8bpp 48 28 28 12 -15 -8 normal
+    -1 sprites/flirt.png 8bpp 96 28 20 16 -6 -9 normal
+    -1 sprites/flirt.png 8bpp 128 28 8 21 -3 -11 normal
+    -1 sprites/flirt.png 8bpp 144 28 20 16 -14 -9 normal
+    -1 sprites/flirt.png 8bpp 176 28 28 12 -15 -8 normal
+    -1 sprites/flirt.png 8bpp 224 28 20 16 -6 -9 normal
+    -1 * 9	02 00 01 01 01 00 00 00 00 // set 1, flirt pax car
+    -1 * 9	02 00 02 01 01 01 00 01 00 // set 2, flirt mail car
+   
+    // electric locos 
+    -1 * 4	01 00 03 04
+    -1 sprites/electric.png 8bpp 0 0 8 21 -3 -11 normal
+    -1 sprites/electric.png 8bpp 16 0 20 16 -14 -9 normal
+    -1 sprites/electric.png 8bpp 48 0 29 16 -16 -12 normal
+    -1 sprites/electric.png 8bpp 96 0 20 16 -6 -9 normal
+    -1 sprites/electric.png 8bpp 128 0 8 21 -3 -11 normal
+    -1 sprites/electric.png 8bpp 144 0 20 16 -14 -9 normal
+    -1 sprites/electric.png 8bpp 176 0 29 16 -16 -12 normal
+    -1 sprites/electric.png 8bpp 224 0 20 16 -6 -9 normal
+    -1 sprites/electric.png 8bpp 0 28 8 21 -3 -11 normal
+    -1 sprites/electric.png 8bpp 16 28 20 16 -14 -9 normal
+    -1 sprites/electric.png 8bpp 48 28 29 16 -16 -12 normal
+    -1 sprites/electric.png 8bpp 96 28 20 16 -6 -9 normal
+    -1 * 9	02 00 03 01 01 00 00 00 00 // set 3, bombardier
+    -1 * 9	02 00 04 01 01 01 00 01 00 // set 4, recoloured sh
+    -1 * 9	02 00 05 01 01 02 00 02 00 // set 5, siemens = eurosprinter
 
+    // monorails
+    -1 * 4	01 00 03 04
+    -1 sprites/mono.png 8bpp 0 0 8 18 -3 -12 normal
+    -1 sprites/mono.png 8bpp 16 0 20 16 -13 -9 normal
+    -1 sprites/mono.png 8bpp 48 0 28 12 -15 -8 normal
+    -1 sprites/mono.png 8bpp 96 0 20 16 -5 -9 normal
+    -1 sprites/mono.png 8bpp 0 28 8 18 -3 -12 normal
+    -1 sprites/mono.png 8bpp 16 28 20 16 -13 -9 normal
+    -1 sprites/mono.png 8bpp 48 28 28 12 -15 -8 normal
+    -1 sprites/mono.png 8bpp 96 28 20 16 -5 -9 normal
+    -1 sprites/mono.png 8bpp 0 56 8 18 -3 -12 normal
+    -1 sprites/mono.png 8bpp 16 56 20 16 -13 -9 normal
+    -1 sprites/mono.png 8bpp 48 56 28 12 -15 -8 normal
+    -1 sprites/mono.png 8bpp 96 56 20 16 -5 -9 normal
+    -1 * 9	02 00 06 01 01 00 00 00 00 // set 6, 1st mono
+    -1 * 9	02 00 07 01 01 01 00 01 00 // set 7, 2nd mono
+    -1 * 9	02 00 08 01 01 02 00 02 00 // set 8, 3rd mono
+
+    // maglevs
+    -1 * 4	01 00 02 08
+    -1 sprites/maglev.png 8bpp 0 0 8 23 -3 -11 normal
+    -1 sprites/maglev.png 8bpp 16 0 22 17 -14 -9 normal
+    -1 sprites/maglev.png 8bpp 48 0 31 12 -16 -8 normal
+    -1 sprites/maglev.png 8bpp 96 0 22 17 -6 -9 normal
+    -1 sprites/maglev.png 8bpp 128 0 8 22 -3 -12 normal
+    -1 sprites/maglev.png 8bpp 144 0 22 17 -14 -9 normal
+    -1 sprites/maglev.png 8bpp 176 0 32 12 -16 -8 normal
+    -1 sprites/maglev.png 8bpp 224 0 22 17 -6 -9 normal
+    -1 sprites/maglev.png 8bpp 0 28 8 23 -3 -11 normal
+    -1 sprites/maglev.png 8bpp 16 28 22 17 -14 -9 normal
+    -1 sprites/maglev.png 8bpp 48 28 31 12 -16 -8 normal
+    -1 sprites/maglev.png 8bpp 96 28 22 17 -6 -9 normal
+    -1 sprites/maglev.png 8bpp 128 28 8 22 -3 -12 normal
+    -1 sprites/maglev.png 8bpp 144 28 22 17 -14 -9 normal
+    -1 sprites/maglev.png 8bpp 176 28 32 12 -16 -8 normal
+    -1 sprites/maglev.png 8bpp 224 28 22 17 -6 -9 normal
+    -1 * 9	02 00 10 01 01 00 00 00 00 // set 10, smt
+    -1 * 9	02 00 11 01 01 01 00 01 00 // set 11, shinkansen
+
+    -1 * 6	07 00 00 \70 04 \b37 // skip everything if new graphics unwanted
+    -1 * 6	07 00 00 \70 00 \b8 // skip if no temperate trains
+
+    -1 * 9	03 00 01 FF 03 01 00 00 00 // flirt
+    -1 * 7	03 00 81 1B 00 01 00 // flirt pax
+    -1 * 7	03 00 81 1C 00 02 00 // flirt mail
+    -1 * 7	00 00 01 01 1B 12 FD
+    -1 * 7	00 00 01 01 1C 12 FD
+    -1 * 9	00 00 01 01 FF 03 01 12 FD
+    
+    -1 * 9	03 00 01 FF 0A 01 00 05 00 // eurosprinter
+    -1 * 9      00 00 01 01 FF 0A 01 12 FD
+
+    -1 * 6	07 00 00 \70 01 \b6 // skip if no american trains
+
+    -1 * 9	03 00 01 FF 05 01 00 04 00
+    -1 * 9	03 00 01 FF 06 01 00 03 00
+    -1 * 9	03 00 01 FF 07 01 00 05 00
+    -1 * 9	00 00 01 01 FF 05 01 12 FD
+    -1 * 9	00 00 01 01 FF 06 01 12 FD
+    -1 * 9	00 00 01 01 FF 07 01 12 FD
+
+    -1 * 6	07 00 00 \70 02 \b10 // skip if no mono/maglevs trains
+
+    -1 * 7	03 00 01 36 00 06 00
+    -1 * 7	03 00 01 37 00 07 00
+    -1 * 7	03 00 01 54 00 08 00
+    -1 * 7	00 00 01 01 36 12 FD
+    -1 * 7	00 00 01 01 37 12 FD
+    -1 * 7	00 00 01 01 54 12 FD
+
+    -1 * 7	03 00 01 56 00 10 00
+    -1 * 7	03 00 01 57 00 11 00
+    -1 * 7	00 00 01 01 56 12 FD
+    -1 * 7	00 00 01 01 57 12 FD
+
+    209 * 1	0C // end of file
 
