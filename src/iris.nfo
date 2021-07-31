@@ -5,14 +5,14 @@
 // Escapes: D= = DR D+ = DF D- = DC Du* = DM D* = DnF Du<< = DnC D<< = DO D& D| Du/ D/ Du% D%
 // Format: spritenum imagefile depth xpos ypos xsize ysize xrel yrel zoom flags
 
-    0 * 4	\d246
+    0 * 4	\d241
 
     1 * -1	14
 		"C" "INFO"
-			"B" "VRSN"  04 00  05 00 00 00   // version 5
-			"B" "MINV"  04 00  05 00 00 00   // min compatible version 5
+			"B" "VRSN"  04 00  06 00 00 00   // version 6
+			"B" "MINV"  04 00  06 00 00 00   // min compatible version 6
 			"T" "URL_"  00 "http://github.com/chmykh/iris" 00
-			"B" "NPAR"  01 00  07
+			"B" "NPAR"  01 00  08
 			"C" "PARA"
 				"C" 00 00 00 00
 					"T" "NAME" 00 "Enable new temperate trains" 00
@@ -37,27 +37,34 @@
 					00
 				"C" 03 00 00 00
 					"T" "NAME" 00 "Alter airplanes" 00
-					"T" "DESC" 00 "Disable most futuristic and some of modern airplanes" 00
+					"T" "DESC" 00 "Disable all futuristic and some of modern airplanes" 00
 					"B" "MASK" 03 00 00 03 01
 					"B" "TYPE" 01 00 01
 					"B" "DFLT" 04 00 01 00 00 00
 					00
 				"C" 04 00 00 00
+					"T" "NAME" 00 "Enable fast futuristic helicopter" 00
+					"T" "DESC" 00 "Return FFP Hyperdart 2 as a jet-speed heli (year 2037)" 00
+					"B" "MASK" 03 00 00 07 01
+					"B" "TYPE" 01 00 01
+					"B" "DFLT" 04 00 01 00 00 00
+					00
+				"C" 05 00 00 00
 					"T" "NAME" 00 "Use new graphics" 00
 					"T" "DESC" 00 "Update visual appearence of the new engines. If disabled, all the new engines will re-use existing sprites from a base graphics set. This makes sense for playing with non-default base set (32bpp, night)" 00
 					"B" "MASK" 03 00 00 04 01
 					"B" "TYPE" 01 00 01
 					"B" "DFLT" 04 00 01 00 00 00
 					00
-				"C" 05 00 00 00
-					"T" "NAME" 00 "Oil wells only decrease neutralizer" 00
+				"C" 06 00 00 00
+					"T" "NAME" 00 "Alter temperate oil wells behavior" 00
 					"T" "DESC" 00 "Make oil wells behave as any other industry on temperate" 00
 					"B" "MASK" 03 00 00 05 01
 					"B" "TYPE" 01 00 01
 					"B" "DFLT" 04 00 01 00 00 00
 					00
-				"C" 06 00 00 00
-					"T" "NAME" 00 "Paper on temperate" 00
+				"C" 07 00 00 00
+					"T" "NAME" 00 "Enable paper to temperate climate" 00
 					"T" "DESC" 00 "Bring paper mills, printing works, and corresponding vehicles to temperate" 00
 					"B" "MASK" 03 00 00 06 01
 					"B" "TYPE" 01 00 01
@@ -72,7 +79,7 @@
 
 
 // aircrafts
-    -1 * 6	07 00 00 \70 03 \b38 // skip aircrafts if unwanted
+    -1 * 6	07 00 00 \70 03 \b41 // skip aircrafts if unwanted
 
     -1 * 7	00 03 01 01 00  06 07 // sampson
     -1 * 7	00 03 01 01 01  06 07 // coleman
@@ -141,9 +148,13 @@
     -1 * 7	00 03 01 01 1C  06 00 // kelling k7 - DISABLE
     -1 * 7	00 03 01 01 1D  08 06 // darwin 700, sprite #3, large airplane for 2042-2070s
 
-    -1 * 09	00 03 02 01 1E        // hyperdart becomes a heli
+    -1 * 6	07 00 00 \70 07 \b1 // skip if hyperdart *is* restored
+    -1 * 9	00 03 02 01 1E        // hyperdart becomes a heli
 				0C 4A // speed as jet airplanes
 				09 00 // ...but VTOL
+    -1 * 6	07 00 00 \71 07 \b1 // skip if hyperdart not desired
+    -1 * 7	00 03 01 01 1E  06 00 // hyperdart - DISABLE
+
     -1 * 12	00 03 03 01 1F        // dinger 200 -> a380
 				08 0E // sprite #7 (b747)
 				00 \w01-01-2007
@@ -160,8 +171,10 @@
     -1 * 10	04 03 00 01 19 "RT 2" 00
     -1 * 10	04 03 00 01 1A "RT 3" 00 
 
+
+
 // temperate trains
-    42 * 6	07 00 00 \70 00 \b26 // skip temperate if unwanted
+    45 * 6	07 00 00 \70 00 \b26 // skip temperate if unwanted
     
     -1 * 7	00 00 01 01 00  06 01 // kirby
     -1 * 7	00 00 01 01 08  06 01 // jubilee
@@ -262,7 +275,7 @@
     -1 * 9	00 00 01 01 FF 0A 01  1A 36 // asiasprinter before first monorial
 
 // arctic/tropic trains
-    69 * 6	07 00 00 \70 01 \b26 // skip it if unwanted
+    72 * 6	07 00 00 \70 01 \b26 // skip it if unwanted
 
     -1 * 7	00 00 01 01 01  06 06 // mjs250
     -1 * 7	00 00 01 01 07  06 06 // wills
@@ -390,7 +403,7 @@
     -1 * 11	00 00 01 01 FF 04 01  1A FF 05 01
 
 // mono/maglevs
-    96 * 6	07 00 00 \70 02 \b12 // skip mono/maglevs if unwanted
+    99 * 6	07 00 00 \70 02 \b12 // skip mono/maglevs if unwanted
 
     -1 * 35	00 00 0C 01 36  // X2001 -> Hitachi 100 series (Tokyo)
 					00 \w01-01-1964
@@ -461,33 +474,26 @@
 
 // new graphics
 
-// BUG: electric loco, and flirt, in train list aligned incorrectly (no pantograph, and too high)
-
     // flirt
     -1 * 4	01 00 01 08
     -1 sprites/flirt.png 8bpp 0 0 8 21 -3 -11 normal
     -1 sprites/flirt.png 8bpp 16 0 20 16 -14 -9 normal
-    -1 sprites/flirt.png 8bpp 48 0 28 12 -15 -8 normal
+    -1 sprites/flirt.png 8bpp 48 0 29 12 -16 -8 normal
     -1 sprites/flirt.png 8bpp 96 0 20 16 -6 -9 normal
     -1 sprites/flirt.png 8bpp 128 0 8 21 -3 -11 normal
     -1 sprites/flirt.png 8bpp 144 0 20 16 -14 -9 normal
-    -1 sprites/flirt.png 8bpp 176 0 28 12 -15 -8 normal
+    -1 sprites/flirt.png 8bpp 176 0 29 12 -16 -8 normal
     -1 sprites/flirt.png 8bpp 224 0 20 16 -6 -9 normal
     -1 * 9	02 00 00 01 01 00 00 00 00 // set 0, flirt loco
 
     // flirt cars
-    -1 * 4	01 00 02 04
+    -1 * 4	01 00 01 04
     -1 sprites/flirt.png 8bpp 0 28 8 21 -3 -11 normal
     -1 sprites/flirt.png 8bpp 16 28 20 16 -14 -9 normal
-    -1 sprites/flirt.png 8bpp 48 28 28 12 -15 -8 normal
+    -1 sprites/flirt.png 8bpp 48 28 29 12 -16 -8 normal
     -1 sprites/flirt.png 8bpp 96 28 20 16 -6 -9 normal
-    -1 sprites/flirt.png 8bpp 128 28 8 21 -3 -11 normal
-    -1 sprites/flirt.png 8bpp 144 28 20 16 -14 -9 normal
-    -1 sprites/flirt.png 8bpp 176 28 28 12 -15 -8 normal
-    -1 sprites/flirt.png 8bpp 224 28 20 16 -6 -9 normal
     -1 * 9	02 00 01 01 01 00 00 00 00 // set 1, flirt pax car
-    -1 * 9	02 00 02 01 01 01 00 01 00 // set 2, flirt mail car
-   
+
     // electric locos 
     -1 * 4	01 00 03 04
     -1 sprites/electric.png 8bpp 0 0 8 21 -3 -11 normal
@@ -564,29 +570,33 @@
     -1 * 9	02 00 11 01 01 01 00 01 00 // set 11, shinkansen
 
     -1 * 6	07 00 00 \70 04 E0 // skip everything if new graphics unwanted
-    -1 * 9	07 88 04 \7gg FF 4F 54 01 \b28 // skip if base set is not opengfx
-    -1 * 6	07 00 00 \70 00 \b8 // skip if no temperate trains
 
+    -1 * 6	07 00 00 \70 00 \b7 // skip if no temperate trains
+    -1 * 9	07 88 04 \7gg FF 4F 54 01 \b6 // skip if not opengfx
     -1 * 9	03 00 01 FF 03 01 00 00 00 // flirt
     -1 * 7	03 00 81 1B 00 01 00 // flirt pax
-    -1 * 7	03 00 81 1C 00 02 00 // flirt mail
-    -1 * 7	00 00 01 01 1B 12 FD
-    -1 * 7	00 00 01 01 1C 12 FD
-    -1 * 9	00 00 01 01 FF 03 01 12 FD
-    
     -1 * 9	03 00 01 FF 0A 01 00 05 00 // eurosprinter
+    
+    -1 * 7	00 00 01 01 1B 12 FD
+    -1 * 9	00 00 01 01 FF 03 01 12 FD    
     -1 * 9      00 00 01 01 FF 0A 01 12 FD
 
-    -1 * 6	07 00 00 \70 01 \b6 // skip if no american trains
-
-    -1 * 9	03 00 01 FF 05 01 00 04 00
+    -1 * 6	07 00 00 \70 01 \b11 // skip if no american trains
+    -1 * 9	07 88 04 \7gg FF 4F 54 01 \b4 // skip if not opengfx
+    -1 * 9	03 00 01 FF 05 01 00 04 00    // install opengfx-style sprites
     -1 * 9	03 00 01 FF 06 01 00 03 00
-    -1 * 9	03 00 01 FF 07 01 00 05 00
+    -1 * 9	03 00 01 FF 07 01 00 05 00    
+    -1 * 6	07 9A 01 \71 00 \b3           // skip if opengfx
+    -1 * 9	03 00 01 FF 05 01 00 24 00    // install original-style sprites
+    -1 * 9	03 00 01 FF 06 01 00 23 00
+    -1 * 9	03 00 01 FF 07 01 00 25 00
+
     -1 * 9	00 00 01 01 FF 05 01 12 FD
     -1 * 9	00 00 01 01 FF 06 01 12 FD
     -1 * 9	00 00 01 01 FF 07 01 12 FD
 
-    -1 * 6	07 00 00 \70 02 \b10 // skip if no mono/maglevs trains
+    -1 * 6	07 00 00 \70 02 \b11 // skip if no mono/maglevs trains
+    -1 * 9	07 88 04 \7gg FF 4F 54 01 \b10 // skip if not opengfx
 
     -1 * 7	03 00 01 36 00 06 00
     -1 * 7	03 00 01 37 00 07 00
@@ -600,25 +610,16 @@
     -1 * 7	00 00 01 01 56 12 FD
     -1 * 7	00 00 01 01 57 12 FD
 
-    -1 * 6	07 9A 01 \71 00 E0 // unconditional jump over the next section
-
- // jump to here if graphics is not opengfx
-    -1 * 9	03 00 01 FF 05 01 00 24 00
-    -1 * 9	03 00 01 FF 06 01 00 23 00
-    -1 * 9	03 00 01 FF 07 01 00 25 00
-    -1 * 9	00 00 01 01 FF 05 01 12 FD
-    -1 * 9	00 00 01 01 FF 06 01 12 FD
-    -1 * 9	00 00 01 01 FF 07 01 12 FD     
-
     -1 * 2	10 E0 // end of new graphics section
 
-   234 * 6	07 00 00 \70 05 \b1 // skip oil wells if unwanted
-    -1 * 14	00 0A 03 01 0B // alter industry 0B, oil wells
+   229 * 6	07 00 00 \70 05 \b1 // skip oil wells if unwanted
+    -1 * 16	00 0A 04 01 0B // alter industry 0B, oil wells. TODO: probabilities?
 				08 0B // all properties of oil wells
 				09 0B // hide original oil wells
 				1A 00 00 00 00 // special flag = 0; can increase production, and can appear after 1950
+				18 01 // probab in game
 
-   236 * 6	07 00 00 \70 06 \b9 // skip paper if unwanted
+   231 * 6	07 00 00 \70 06 \b9 // skip paper if unwanted
     -1 * 6	07 83 01 \7! 00 \b8 // skip paper if we are not on temperate
 
     -1 * 36	00 0B 0B 01 0B // alter cargo 0B, paper
@@ -661,4 +662,4 @@
     -1 * 9	00 00 02 01 45 06 03 15 1B // mono paper truck, cargo type 0B
     -1 * 9	00 00 02 01 65 06 03 15 1B // maglev paper truck, cargo type 0B
 
-   246 * 1	0C // end of file
+   241 * 1	0C // end of file
