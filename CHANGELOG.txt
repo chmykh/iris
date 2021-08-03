@@ -4,3 +4,6 @@ Ver 3. American trains for arctic/tropic added.
 Ver 4. Zero decay bug fixed. Monorails and maglevs added.
 Ver 5. New graphics; 'Eurosprinter' freight loco for temperate; newgrf INFO secition bug fixed.
 Ver 6. Bug with opengfx/original baseset fixed. 'Flirt' redrawn.
+Ver 7. Bug with opengfx/original baseset fixed, vol.2.
+Ver 8. Bug with opengfx/original baseset fixed, vol.3.
+Ver 9. New graphics for monos and maglevs for original base set.
