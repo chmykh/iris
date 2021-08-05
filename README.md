@@ -3,7 +3,7 @@ Iris Gameplay Tweaks
 
 Tweaks for the "..:: Surreal Hardcore ::.. // oldschool tycoon" multiplayer server.
 
-Version 9.
+Version 10.
 
 TL;DR: This mod brings diversity to 1980-2020 rail engines, and deprives default monorails and maglevs from its totally unrealistic power.
 
