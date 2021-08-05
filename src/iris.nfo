@@ -5,14 +5,14 @@
 // Escapes: D= = DR D+ = DF D- = DC Du* = DM D* = DnF Du<< = DnC D<< = DO D& D| Du/ D/ Du% D%
 // Format: spritenum imagefile depth xpos ypos xsize ysize xrel yrel zoom flags
 
-    0 * 4	\d349
+    0 * 4	\d356
 
     1 * -1	14
 		"C" "INFO"
-			"B" "VRSN"  04 00  09 00 00 00   // version 9
-			"B" "MINV"  04 00  09 00 00 00   // min compatible version 9
+			"B" "VRSN"  04 00  0A 00 00 00   // version 10
+			"B" "MINV"  04 00  0A 00 00 00   // min compatible version 10
 			"T" "URL_"  00 "http://github.com/chmykh/iris" 00
-			"B" "NPAR"  01 00  08
+			"B" "NPAR"  01 00  09
 			"C" "PARA"
 				"C" 00 00 00 00
 					"T" "NAME" 00 "Enable new temperate trains" 00
@@ -44,7 +44,7 @@
 					00
 				"C" 04 00 00 00
 					"T" "NAME" 00 "Enable fast futuristic helicopter" 00
-					"T" "DESC" 00 "Return FFP Hyperdart 2 as a jet-speed heli (year 2037)" 00
+					"T" "DESC" 00 "Return FFP Hyperdart 2 as a jet-speed heli" 00
 					"B" "MASK" 03 00 00 07 01
 					"B" "TYPE" 01 00 01
 					"B" "DFLT" 04 00 01 00 00 00
@@ -58,15 +58,22 @@
 					00
 				"C" 06 00 00 00
 					"T" "NAME" 00 "Alter temperate oil wells behavior" 00
-					"T" "DESC" 00 "Make oil wells behave as any other industry on temperate" 00
+					"T" "DESC" 00 "Make oil wells able to increase production and appear in game lately" 00
 					"B" "MASK" 03 00 00 05 01
 					"B" "TYPE" 01 00 01
 					"B" "DFLT" 04 00 01 00 00 00
 					00
 				"C" 07 00 00 00
-					"T" "NAME" 00 "Enable paper to temperate climate" 00
-					"T" "DESC" 00 "Bring paper mills, printing works, and corresponding vehicles to temperate" 00
+					"T" "NAME" 00 "Enable paper on temperate climate" 00
+					"T" "DESC" 00 "Bring paper production chain to temperate" 00
 					"B" "MASK" 03 00 00 06 01
+					"B" "TYPE" 01 00 01
+					"B" "DFLT" 04 00 01 00 00 00
+					00
+				"C" 08 00 00 00
+					"T" "NAME" 00 "Prohibit canals" 00
+					"T" "DESC" 00 "Set prohibitive costs for canals, locks, aqueducts" 00
+					"B" "MASK" 03 00 00 08 01
 					"B" "TYPE" 01 00 01
 					"B" "DFLT" 04 00 01 00 00 00
 					00
@@ -187,7 +194,7 @@
     -1 * 7	00 00 01 01 0F  06 01 // 47
     -1 * 7	00 00 01 01 16  06 01 // sh 125
 
-    -1 * 52	00 00 12 01 FF 03 01   // flirt diesel
+    -1 * 54	00 00 13 01 FF 03 01   // flirt diesel
 					00 \w01-01-2004
 					02 14 // decay speed 20
 					03 14 // life 20yr
@@ -206,13 +213,15 @@
 					17 10 // cost factor 16 (manley-morel is 11, dash is 15, diesel are 15-17-18)
 					19 08 // traction type diesel
 					1D 01 00 00 00 // refittable
+					1F 4C // tractive effort
     -1 * 24	04 00 00 01 FF 03 01 "'Flirt' (Diesel)" 00
+
 
     -1 * 7	00 00 01 01 17  06 01 // sh 30
     -1 * 7	00 00 01 01 18  04 1E // sh 30, set lifetime be 30, not 80
     -1 * 7	00 00 01 01 19  06 01 // t.i.m.
 
-    -1 * 43	00 00 0F 01 FF 02 01  // newer tgv, 2005yr, 300kph, 9200hp
+    -1 * 45	00 00 10 01 FF 02 01  // newer tgv, 2005yr, 300kph, 9200hp
 					00 \w01-01-2005
 					02 14 // decay speed 20
 					03 19 // life 25yr
@@ -228,11 +237,12 @@
 					16 5A // weight 90t as tim
 					17 29 // cost factor 41 (tim is 40, asiastar is 43)
 					19 28 // traction type electric
+					1F 4C // tractive effort
     -1 * 31	04 00 00 01 FF 02 01  "'T.I.M.' POS (Electric)" 00
 
     -1 * 7	00 00 01 01 1A  04 1E  // model lifetime of old asiastar be 30, not 50
 
-    -1 * 43	00 00 0F 01 FF 01 01  // newer eurostar (class 374), 2011yr, 320kph, 10000hp
+    -1 * 45	00 00 10 01 FF 01 01  // newer eurostar (class 374), 2011yr, 320kph, 10000hp
 					00 \w01-01-2011
 					02 14 // decay speed 20
 					03 19 // life 25 yr
@@ -248,9 +258,10 @@
 					16 5F // weight 95t as asiastar
 					17 2C // cost factor 44 (asiastar is 43)
 					19 28 // traction type electric
+					1F 4C // tractive effort
     -1 * 34	04 00 00 01 FF 01 01 "'AsiaStar' e320 (Electric)" 00
 
-    -1 * 43	00 00 0F 01 FF 0A 01  // siemens eurosprinter, 200yr, 230km/h, 8600hp
+    -1 * 45	00 00 10 01 FF 0A 01  // siemens eurosprinter, 200yr, 230km/h, 8600hp
 					00 \w01-01-2000
 					02 14 // decay speed 20
 					03 19 // life 25 yr
@@ -266,6 +277,7 @@
 					16 56 // weight 86t
 					17 23 // cost factor 35 (sh40 30)
 					19 28 // traction type electric
+					1F 4C // tractive effort
     -1 * 33	04 00 00 01 FF 0A 01 "'AsiaSprinter' (Electric)" 00
 
     // sort vehicle list
@@ -286,7 +298,7 @@
     -1 * 7	00 00 01 01 14  06 06 // turner turbo
     -1 * 7	00 00 01 01 15  06 06 // mjs1000
   
-    -1 * 43	00 00 0F 01 FF 04 01  // GE AC6000CW
+    -1 * 45	00 00 10 01 FF 04 01  // GE AC6000CW
 					00 \w01-01-1995
 					02 14 // decay speed 20
 					03 19 // life 25 yr
@@ -302,9 +314,10 @@
 					16 C0 // weight 192t
 					17 27 // cost factor 39 (centennial 30, turbotrain 35)
 					19 08 // traction type diesel
+					1F 4C // tractive effort
     -1 * 25	04 00 00 01 FF 04 01 "AC6000CW (Diesel)" 00
 
-    -1 * 43	00 00 0F 01 FF 05 01  // EMD AEM-7
+    -1 * 45	00 00 10 01 FF 05 01  // EMD AEM-7
 					00 \w01-01-1978
 					02 14 // decay speed 20
 					03 19 // life 25 yr
@@ -320,9 +333,10 @@
 					16 5C // weight 92t
 					17 24 // cost factor 36
 					19 28 // traction type electric
+					1F 4C // tractive effort
     -1 * 24	04 00 00 01 FF 05 01 "AEM-7 (Electric)" 00
 
-    -1 * 43	00 00 0F 01 FF 06 01  // Bombardier ALP-46
+    -1 * 45	00 00 10 01 FF 06 01  // Bombardier ALP-46
 					00 \w01-01-2001
 					02 14 // decay speed 20
 					03 19 // life 25 yr
@@ -338,9 +352,10 @@
 					16 5A // weight 90t
 					17 26 // cost factor 38
 					19 28 // traction type electric
+					1F 4C // tractive effort
     -1 * 25	04 00 00 01 FF 06 01 "ALP-46 (Electric)" 00
 
-    -1 * 43	00 00 0F 01 FF 07 01  // Siemens ACS-64
+    -1 * 45	00 00 10 01 FF 07 01  // Siemens ACS-64
 					00 \w01-01-2012
 					02 14 // decay speed 20
 					03 19 // life 25 yr
@@ -356,9 +371,10 @@
 					16 5A // weight 90t
 					17 28 // cost factor 40
 					19 28 // traction type electric
+					1F 4C // tractive effort
     -1 * 25	04 00 00 01 FF 07 01 "ACS-64 (Electric)" 00
 
-    -1 * 43	00 00 0F 01 FF 08 01  // Acela
+    -1 * 45	00 00 10 01 FF 08 01  // Acela
 					00 \w01-01-2000
 					02 14 // decay speed 20
 					03 19 // life 25 yr
@@ -374,9 +390,10 @@
 					16 5D // weight 93t
 					17 2A // cost factor 42
 					19 28 // traction type electric
+					1F 4C // tractive effort
     -1 * 26	04 00 00 01 FF 08 01 "'Acela' (Electric)" 00
 
-    -1 * 43	00 00 0F 01 FF 09 01  // Avelia
+    -1 * 45	00 00 10 01 FF 09 01  // Avelia
 					00 \w01-01-2022
 					02 14 // decay speed 20
 					03 19 // life 25 yr
@@ -392,6 +409,7 @@
 					16 5D // weight 93t
 					17 2C // cost factor 44
 					19 28 // traction type electric
+					1F 4C // tractive effort
     -1 * 27	04 00 00 01 FF 09 01 "'Avelia' (Electric)" 00
     
     // sort list
@@ -403,7 +421,7 @@
     -1 * 11	00 00 01 01 FF 04 01  1A FF 05 01
 
 // mono/maglevs
-    99 * 6	07 00 00 \70 02 \b12 // skip mono/maglevs if unwanted
+    99 * 6	07 00 00 \70 02 \b13 // skip mono/maglevs if unwanted
 
     -1 * 35	00 00 0C 01 36  // X2001 -> Hitachi 100 series (Tokyo)
 					00 \w01-01-1964
@@ -417,7 +435,7 @@
 					14 \b80 // capacity
 					16 \b32 // weight
 					17 \b12 // cost
-					1D 01 00 00 00 // refittable to pass=1 | mail=2 | armoured=400
+					1D 01 00 00 00 // not refittable to pass=1 | mail=2 | armoured=400
     -1 * 35	00 00 0C 01 37  // Millenium Z1 -> Hitachi 1000 series (Osaka)
 					00 \w01-01-1989
 					04 \b30 // model life time
@@ -430,7 +448,7 @@
 					14 \b97 // capacity
 					16 \b36 // weight
 					17 \b13 // cost
-					1D 01 00 00 00 // refittable
+					1D 01 00 00 00 // not refittable
 
     -1 * 39	00 00 0E 01 54  // Lev1 -> Hitachi/Woojin 3000 series (Daego metro)
 					00 \w01-01-2013
@@ -446,31 +464,44 @@
 					16 \b40 // weight
 					17 \b16 // cost
 					19 32 // traction type monorail
-					1D 01 00 00 00 // refittable
-    -1 * 7	00 00 01 01 55  06 00 // disable (Chongqing monorail?)
+					1D 01 00 00 00 // not refittable
+    -1 * 35	00 00 0C 01 55  // Lev2 -> Line S1 Beijing
+					00 \w01-01-2018
+					04 FF // model life time
+					07 \b15 // loading speed
+					09 \w100 // speed
+					0B \w1000 // power
+					0D \b90 // rcost
+					12 34 // image #26, 'millenium z1'
+					13 01 // dual-headed
+					14 \b105 // capacity
+					16 \b40 // weight
+					17 \b16 // cost					
+					1D 01 00 00 00 // not refittable
 
     -1 * 20	00 00 06 01 56  // Lev3 -> Shanghai Maglev Train
 					00 \w10-10-2003
-					04 \b50 // model life time
+					04 \b30 // model life time
 					09 \w430 // speed
 					0B \w4600 // power
 					12 3E // image #31
 					13 01 // dual-headed
     -1 * 20	00 00 06 01 57  // Lev4 -> Chuo Shinkansen
-					00 \w01-01-2025
+					00 \w01-01-2028
 					04 FF // model life unlimited yr
 					09 \w500 // speed
 					0B \w5300 // power
 					12 3E // image #31
 					13 01 // dual-headed
 
-    -1 * 27	04 00 00 01 36 "100 series (Monorail)" 00 // Hitachi 100 series (Tokyo)
-    -1 * 28	04 00 00 01 37 "1000 series (Monorail)" 00 // Hitachi 1000 series (Osaka)
-    -1 * 28	04 00 00 01 54 "3000 series (Monorail)" 00 // Hitachi/Woojin 3000 series (Daegu metro)
+    -1 * 22	04 00 00 01 36 "H 100 (Monorail)" 00 // Hitachi 100 series (Tokyo)
+    -1 * 23	04 00 00 01 37 "H 1000 (Monorail)" 00 // Hitachi 1000 series (Osaka)
+    -1 * 23	04 00 00 01 54 "H 3000 (Monorail)" 00 // Hitachi/Woojin 3000 series (Daegu metro)
+    -1 * 17	04 00 00 01 55 "S1 (Maglev)" 00 // Line S1 Beijing
     -1 * 18	04 00 00 01 56 "SMT (Maglev)" 00 // Shanghai Maglev Train
-    -1 * 24	04 00 00 01 57 "L0 Series (Maglev)" 00 // Chuo Shinkansen
+    -1 * 17	04 00 00 01 57 "L0 (Maglev)" 00 // Chuo Shinkansen
 
-    -1 * 7	00 00 01 01 55  1A 54 // sort last monorail before first maglev
+    -1 * 7	0C 00 01 01 55  1A 54 // sort last monorail before first maglev
 
 // new graphics
     // flirt
@@ -581,22 +612,22 @@
 
     // maglevs
     -1 * 4	01 00 02 08
-    -1 sprites/maglev.png 8bpp 0 0 8 23 -3 -11 normal
-    -1 sprites/maglev.png 8bpp 16 0 22 17 -14 -9 normal
-    -1 sprites/maglev.png 8bpp 48 0 31 12 -16 -8 normal
-    -1 sprites/maglev.png 8bpp 96 0 22 17 -6 -9 normal
-    -1 sprites/maglev.png 8bpp 128 0 8 22 -3 -12 normal
-    -1 sprites/maglev.png 8bpp 144 0 22 17 -14 -9 normal
-    -1 sprites/maglev.png 8bpp 176 0 32 12 -16 -8 normal
-    -1 sprites/maglev.png 8bpp 224 0 22 17 -6 -9 normal
-    -1 sprites/maglev.png 8bpp 0 28 8 23 -3 -11 normal
-    -1 sprites/maglev.png 8bpp 16 28 22 17 -14 -9 normal
-    -1 sprites/maglev.png 8bpp 48 28 31 12 -16 -8 normal
-    -1 sprites/maglev.png 8bpp 96 28 22 17 -6 -9 normal
-    -1 sprites/maglev.png 8bpp 128 28 8 22 -3 -12 normal
-    -1 sprites/maglev.png 8bpp 144 28 22 17 -14 -9 normal
-    -1 sprites/maglev.png 8bpp 176 28 32 12 -16 -8 normal
-    -1 sprites/maglev.png 8bpp 224 28 22 17 -6 -9 normal
+    -1 sprites/maglev.png 8bpp 0 0 8 18 -3 -12 normal
+    -1 sprites/maglev.png 8bpp 16 0 20 16 -13 -9 normal
+    -1 sprites/maglev.png 8bpp 48 0 28 12 -15 -8 normal
+    -1 sprites/maglev.png 8bpp 96 0 20 16 -5 -9 normal
+    -1 sprites/maglev.png 8bpp 128 0 8 18 -3 -12 normal
+    -1 sprites/maglev.png 8bpp 144 0 20 16 -13 -9 normal
+    -1 sprites/maglev.png 8bpp 176 0 29 12 -15 -8 normal
+    -1 sprites/maglev.png 8bpp 224 0 20 16 -5 -9 normal
+    -1 sprites/maglev.png 8bpp 0 28 8 18 -3 -12 normal
+    -1 sprites/maglev.png 8bpp 16 28 20 15 -13 -8 normal
+    -1 sprites/maglev.png 8bpp 48 28 28 12 -15 -8 normal
+    -1 sprites/maglev.png 8bpp 96 28 20 16 -5 -9 normal
+    -1 sprites/maglev.png 8bpp 128 28 8 18 -3 -12 normal
+    -1 sprites/maglev.png 8bpp 144 28 20 16 -13 -9 normal
+    -1 sprites/maglev.png 8bpp 176 28 29 12 -15 -8 normal
+    -1 sprites/maglev.png 8bpp 224 28 20 15 -5 -8 normal
     -1 * 9	02 00 10 01 01 00 00 00 00 // set 10, smt
     -1 * 9	02 00 11 01 01 01 00 01 00 // set 11, shinkansen
     -1 * 4	01 00 03 04
@@ -618,7 +649,7 @@
 
     -1 * 4	01 00 02 08
     -1 sprites/maglev_o.png 8bpp 0 0 8 18 -3 -10 normal
-    -1 sprites/maglev_o.png 8bpp 16 0 20 14 -14 -6 normal
+    -1 sprites/maglev_o.png 8bpp 16 0 20 14 -14 -5 normal
     -1 sprites/maglev_o.png 8bpp 48 0 28 12 -14 -6 normal
     -1 sprites/maglev_o.png 8bpp 96 0 20 16 -4 -8 normal
     -1 sprites/maglev_o.png 8bpp 128 0 8 18 -3 -10 normal
@@ -626,7 +657,7 @@
     -1 sprites/maglev_o.png 8bpp 176 0 28 12 -14 -6 normal
     -1 sprites/maglev_o.png 8bpp 224 0 20 14 -4 -6 normal
     -1 sprites/maglev_o.png 8bpp 0 28 8 18 -3 -10 normal
-    -1 sprites/maglev_o.png 8bpp 16 28 20 14 -14 -6 normal
+    -1 sprites/maglev_o.png 8bpp 16 28 20 14 -14 -5 normal
     -1 sprites/maglev_o.png 8bpp 48 28 28 12 -14 -6 normal
     -1 sprites/maglev_o.png 8bpp 96 28 20 16 -4 -8 normal
     -1 sprites/maglev_o.png 8bpp 128 28 8 18 -3 -10 normal
@@ -635,7 +666,7 @@
     -1 sprites/maglev_o.png 8bpp 224 28 20 14 -4 -6 normal
     -1 * 9	02 00 30 01 01 00 00 00 00 // set 30, smt
     -1 * 9	02 00 31 01 01 01 00 01 00 // set 31, shinkansen
-    -1 * 4	01 00 03 04
+    -1 * 4	01 00 04 04
     -1 sprites/maglev_o.png 8bpp 0 56 8 18 -3 -10 normal
     -1 sprites/maglev_o.png 8bpp 16 56 20 16 -14 -7 normal
     -1 sprites/maglev_o.png 8bpp 48 56 28 12 -14 -6 normal
@@ -648,9 +679,14 @@
     -1 sprites/maglev_o.png 8bpp 16 112 20 16 -14 -7 normal
     -1 sprites/maglev_o.png 8bpp 48 112 28 12 -14 -6 normal
     -1 sprites/maglev_o.png 8bpp 96 112 20 16 -4 -8 normal
+    -1 sprites/maglev_o.png 8bpp 0 140 8 18 -3 -10 normal
+    -1 sprites/maglev_o.png 8bpp 16 140 20 16 -14 -7 normal
+    -1 sprites/maglev_o.png 8bpp 48 140 28 12 -14 -6 normal
+    -1 sprites/maglev_o.png 8bpp 96 140 20 16 -4 -8 normal
     -1 * 9	02 00 32 01 01 00 00 00 00 // set 32, maglev pax
     -1 * 9	02 00 33 01 01 01 00 01 00 // set 33, maglev mail
     -1 * 9	02 00 34 01 01 02 00 02 00 // set 34, maglev armoured
+    -1 * 9	02 00 35 01 01 03 00 03 00 // set 35, slow maglev
     
     -1 * 6	07 00 00 \70 04 E0				// skip everything if new graphics unwanted
 
@@ -682,35 +718,32 @@
     -1 * 9	00 00 01 01 FF 06 01 12 FD
     -1 * 9	00 00 01 01 FF 07 01 12 FD
 
-    -1 * 6	07 00 00 \70 02 \b32				// skip if no mono/maglevs trains
-    -1 * 9	07 88 04 \7gg FF 4F 54 01 \b12			// skip if not opengfx
+    -1 * 6	07 00 00 \70 02 \b29				// skip if no mono/maglevs trains
+    -1 * 9	07 88 04 \7gg FF 4F 54 01 \b10			// skip if not opengfx
     -1 * 7	03 00 01 36 00 06 00
     -1 * 7	03 00 01 37 00 07 00
     -1 * 7	03 00 01 54 00 08 00
+    -1 * 7	03 00 01 55 00 08 00				// s1
     -1 * 7	03 00 01 56 00 10 00				// smt
-    -1 * 7	03 00 81 59 00 12 00				// pax
-    -1 * 7	03 00 81 5A 00 13 00				// mail
-    -1 * 7	03 00 81 63 00 14 00				// armour
     -1 * 7	03 00 01 57 00 11 00				// shinkansen
-    -1 * 7	03 00 81 59 00 12 00				// pax
-    -1 * 7	03 00 81 5A 00 13 00				// mail
-    -1 * 7	03 00 81 63 00 14 00				// armour
-    -1 * 6	07 9A 01 \71 00 \b11				// skip if opengfx
+    -1 * 7	03 00 01 59 00 12 00				// pax
+    -1 * 7	03 00 01 5A 00 13 00				// mail
+    -1 * 7	03 00 01 63 00 14 00				// armour
+    -1 * 6	07 9A 01 \71 00 \b9				// skip if opengfx
     -1 * 7	03 00 01 36 00 26 00
     -1 * 7	03 00 01 37 00 27 00
     -1 * 7	03 00 01 54 00 28 00
+    -1 * 7	03 00 01 55 00 35 00				// s1
     -1 * 7	03 00 01 56 00 30 00				// smt
-    -1 * 7	03 00 81 59 00 32 00				// smt pax
-    -1 * 7	03 00 81 5A 00 33 00				// smt mail
-    -1 * 7	03 00 81 63 00 34 00				// smt armour
     -1 * 7	03 00 01 57 00 31 00				// shinkansen
-    -1 * 7	03 00 81 59 00 32 00				// shinkansen pax
-    -1 * 7	03 00 81 5A 00 33 00				// shinkansen mail
-    -1 * 7	03 00 81 63 00 34 00				// shinkansen armour
+    -1 * 7	03 00 01 59 00 32 00				// pax
+    -1 * 7	03 00 01 5A 00 33 00				// mail
+    -1 * 7	03 00 01 63 00 34 00				// armour
     
     -1 * 7	00 00 01 01 36 12 FD
     -1 * 7	00 00 01 01 37 12 FD
     -1 * 7	00 00 01 01 54 12 FD
+    -1 * 7	00 00 01 01 55 12 FD
     -1 * 7	00 00 01 01 56 12 FD
     -1 * 7	00 00 01 01 57 12 FD
     -1 * 7	00 00 01 01 59 12 FD
@@ -719,14 +752,14 @@
 
     -1 * 2	10 E0 // end of new graphics section
 
-   337 * 6	07 00 00 \70 05 \b1 // skip oil wells if unwanted
+   340 * 6	07 00 00 \70 05 \b1 // skip oil wells if unwanted
     -1 * 16	00 0A 04 01 0B // alter industry 0B, oil wells.
 				08 0B // all properties of oil wells
 				09 0B // hide original oil wells
 				1A 00 00 00 00 // special flag = 0; can increase production, and can appear after 1950
 				18 01 // probab in game
 
-   339 * 6	07 00 00 \70 06 \b9 // skip paper if unwanted
+   342 * 6	07 00 00 \70 06 \b9 // skip paper if unwanted
     -1 * 6	07 83 01 \7! 00 \b8 // skip paper if we are not on temperate
 
     -1 * 36	00 0B 0B 01 0B // alter cargo 0B, paper
@@ -769,4 +802,9 @@
     -1 * 9	00 00 02 01 45 06 03 15 1B // mono paper truck, cargo type 0B
     -1 * 9	00 00 02 01 65 06 03 15 1B // maglev paper truck, cargo type 0B
 
-   349 * 1	0C // end of file
+   352 * 6	07 00 00 \70 08 \b3 // skip canal base costs if unwanted
+    -1 * 7	00 08 01 01 3C 08 10 // build canal x10
+    -1 * 7	00 08 01 01 3E 08 10 // build aqueduct x10
+    -1 * 7	00 08 01 01 40 08 10 // build lock x10
+
+   356 * 1	0C // end of file

@@ -7,3 +7,4 @@ Ver 6. Bug with opengfx/original baseset fixed. 'Flirt' redrawn.
 Ver 7. Bug with opengfx/original baseset fixed, vol.2.
 Ver 8. Bug with opengfx/original baseset fixed, vol.3.
 Ver 9. New graphics for monos and maglevs for original base set.
+Ver 10. Tractive effort property added. Option to prohibit canals. +1 slow maglev. Sprites alignment fixed.

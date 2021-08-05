@@ -30,9 +30,10 @@ New trains for arctic/tropic climate:
 All monorails and maglevs are replaced with the following:
 - Hitachi 100 series monorail. Introduced 1964, speed 80km/h, power 811hp, capacity 80 pax/unit.
 - Hitachi 1000 series monorail. Introduced 1989, speed 80km/h, power 913hp, capacity 97 pax/unit.
-- Hitachi/Woojin 3000 series monorail. Introduced 2013, speed 100km/h, power 1014hp, capacity 105 pax/unit. Does not expire.
+- Hitachi/Woojin 3000 series monorail. Introduced 2013, speed 100km/h, power 1014hp, capacity 105 pax/unit.
+- CRRC (Line S1 Beijing Subway). Introduced 2018, speed 100km/h, power 1014hp, capacity 105 pax/unit.
 - Transrapid (Shanghai Maglev Train). Introduced 2004, speed 432km/h, power 4,664hp.
-- SCMaglev L0 Series (Chuo Shinkansen). Introduced 2025, speed 502km/h, power 5,374hp. Does not expire.
+- SCMaglev L0 Series (Chuo Shinkansen). Introduced 2028, speed 502km/h, power 5,374hp. Does not expire.
 
 Aircrafts
 ---------
@@ -50,6 +51,7 @@ Miscellaneous
 
 - Oil wells only decrease neutralizer.
 - Paper on temperate.
+- Prohibitive costs for canals, locks, aqueducts.
 
 ---
 
